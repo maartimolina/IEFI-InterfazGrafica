@@ -3,7 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package ie.interfazgrafica.vistas;
-
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import javax.swing.JTable;
+import javax.swing.JRadioButton;
+import javax.swing.JComboBox;
+import javax.swing.JCheckBox;
 /**
  *
  * @author Valentina
@@ -16,7 +21,26 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
     public VentanaConfiguracion() {
         initComponents();
     }
+    // === GETTERS PARA CONTROLADOR ===
+    public JButton getBtnAgregar() { return btnAgregar; }
+    public JButton getBtnEliminar() { return btnEliminar; }
+    public JButton getBtnIniciarBatalla() { return btnIniciarBatalla; }
+    public JButton getBtnCargarBatalla() { return btnCargarBatalla; }
+    public JButton getBtnSalir() { return btnSalir; }
 
+    public JTextField getTxtNombre() { return txtNombre; }
+    public JTextField getTxtApodo() { return txtApodo; }
+    public JTextField getTxtVidaInicial() { return txtVidaInicial; }
+    public JTextField getTxtFuerzaInicial() { return txtFuerzaInicial; }
+    public JTextField getTxtDefensaInicial() { return txtDefensaInicial; }
+    public JTextField getTxtBendicionInicial() { return txtBendicionInicial; }
+
+    public JTable getTablaPersonajes() { return tablaPersonajes; }
+    public JRadioButton getRbHeroe() { return rbHeroe; }
+    public JRadioButton getRbVillano() { return rbVillano; }
+    public JComboBox<String> getCbCantidadBatallas() { return cbCantidadBatallas; }
+    public JCheckBox getCkActivar1() { return ckActivar1; }
+    public JCheckBox getCkDesactivar() { return ckDesactivar; }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
