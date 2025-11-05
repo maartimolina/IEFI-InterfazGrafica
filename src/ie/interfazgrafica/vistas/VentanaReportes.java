@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package ie.interfazgrafica.vistas;
-
+import javax.swing.JTable;
+import javax.swing.JLabel;
 /**
  *
  * @author Valentina
@@ -16,7 +17,13 @@ public class VentanaReportes extends javax.swing.JFrame {
     public VentanaReportes() {
         initComponents();
     }
+    // === GETTERS PARA CONTROLADOR ===
+    public JTable getTablaRanking() { return jTable1; }
 
+    public JLabel getLblMayorDaño() { return lblMayorDaño; }
+    public JLabel getLblBatallaLarga() { return lblBatallaLarga; }
+    public JLabel getLblArmasInvocadas1() { return lblArmasInvocadas1; }
+    public JLabel getLblAtaquesEjecutados() { return lblAtaquesEjecutados; }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
