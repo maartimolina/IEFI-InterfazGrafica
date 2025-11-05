@@ -1,10 +1,10 @@
 package ie.interfazgrafica;
 
-import ie.interfazgrafica.modelo.Heroe;
-import ie.interfazgrafica.modelo.ValidacionApodos;
 import ie.interfazgrafica.modelo.Villano;
-import ie.interfazgrafica.modelo.Personaje;
 import ie.interfazgrafica.modelo.Reportes;
+import ie.interfazgrafica.modelo.Personaje;
+import ie.interfazgrafica.modelo.ValidacionApodos;
+import ie.interfazgrafica.modelo.Heroe;
 import java.util.*;
 import java.nio.file.*;
 import java.nio.charset.StandardCharsets;
