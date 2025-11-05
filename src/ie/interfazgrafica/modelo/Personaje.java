@@ -1,4 +1,4 @@
-package ie.interfazgrafica;
+package ie.interfazgrafica.modelo;
 
 import java.util.Random;
 import java.util.ArrayList;
