@@ -28,6 +28,11 @@ public class ControladorConfiguracion {
         // Estado inicial sugerido: Activar ON
         vista.getCkActivar1().setSelected(true);
         vista.getCkDesactivar().setSelected(false);
+        
+        //Validaciones apodos
+        vista.getBtnAgregar().addActionListener(e -> agregarJugador());
+        //Eliminar 
+        vista.getBtnEliminar().addActionListener(e -> eliminarJugador());
     }
 
     private void iniciarBatalla() {
@@ -99,5 +104,51 @@ public class ControladorConfiguracion {
 
     private void salir() {
         vista.dispose();
+    }
+    private void agregarJugador() {
+    String nombre = vista.getTxtNombre().getText().trim();
+    String apodo = vista.getTxtApodo().getText().trim();
+    boolean esHeroe = vista.getRbHeroe().isSelected();
+    boolean esVillano = vista.getRbVillano().isSelected();
+
+    // Validar campos vacíos
+    if (nombre.isEmpty() || apodo.isEmpty()) {
+        JOptionPane.showMessageDialog(vista, "Completá nombre y apodo.", "Faltan datos", JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+
+    // Validar apodo con tu clase modelo
+    if (!ValidacionApodos.esValido(apodo)) {
+        JOptionPane.showMessageDialog(vista, "Apodo inválido. Debe tener entre 3 y 10 letras y solo espacios.", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+
+    // Validar tipo
+    if (!esHeroe && !esVillano) {
+        JOptionPane.showMessageDialog(vista, "Seleccioná si es Héroe o Villano.", "Faltan datos", JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+
+    // Agregar a la tabla
+    javax.swing.table.DefaultTableModel modelo = (javax.swing.table.DefaultTableModel) vista.getTablaPersonajes().getModel();
+    modelo.addRow(new Object[]{nombre, apodo, esHeroe ? "Héroe" : "Villano"});
+
+    // Limpiar campos
+    vista.getTxtNombre().setText("");
+    vista.getTxtApodo().setText("");
+    vista.getRbHeroe().setSelected(false);
+    vista.getRbVillano().setSelected(false);
+    }
+    private void eliminarJugador() {
+    javax.swing.table.DefaultTableModel modelo = (javax.swing.table.DefaultTableModel) vista.getTablaPersonajes().getModel();
+    int filaSeleccionada = vista.getTablaPersonajes().getSelectedRow();
+
+    if (filaSeleccionada == -1) {
+        JOptionPane.showMessageDialog(vista, "Seleccioná un jugador para eliminar.", "Ninguna fila seleccionada", JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+
+    modelo.removeRow(filaSeleccionada);
+    JOptionPane.showMessageDialog(vista, "Jugador eliminado correctamente.");
     }
 }

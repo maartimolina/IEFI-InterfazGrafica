@@ -10,3 +10,5 @@ Heroe;Héroe;12;1;0;1
 Villano;Villano;0;0;0;2
 Heroe;Héroe;1;1;0;1
 Villano;Villano;0;0;0;1
+Heroe;Héroe;0;0;0;5
+Villano;Villano;43;1;0;1
