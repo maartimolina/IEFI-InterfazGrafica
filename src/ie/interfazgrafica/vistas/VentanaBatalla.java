@@ -36,6 +36,10 @@ public class VentanaBatalla extends javax.swing.JFrame {
     public JMenuItem getHistorialPartidas() { return HistorialPartidas; }
     public JMenuItem getEstadisticas() { return Estadisticas; }
     public JMenuItem getRanking() { return Ranking; }
+    public javax.swing.JLabel getLblArma1()   { return lblArma1; }
+    public javax.swing.JLabel getLblArma2()   { return lblArma2; }
+    public javax.swing.JLabel getLblEstado1() { return lblEstado1; }
+    public javax.swing.JLabel getLblEstado2() { return lblEstado2; }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

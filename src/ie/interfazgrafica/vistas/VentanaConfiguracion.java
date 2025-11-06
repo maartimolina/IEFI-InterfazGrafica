@@ -9,6 +9,7 @@ import javax.swing.JTable;
 import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
 import javax.swing.JCheckBox;
+
 /**
  *
  * @author Valentina
@@ -21,6 +22,7 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
     public VentanaConfiguracion() {
         initComponents();
     }
+    
     // === GETTERS PARA CONTROLADOR ===
     public JButton getBtnAgregar() { return btnAgregar; }
     public JButton getBtnEliminar() { return btnEliminar; }
