@@ -3,8 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package ie.interfazgrafica.modelo;
- 
-import ie.interfazgrafica.IEInterfazGrafica;
+
+
 
 /**
  *
@@ -24,13 +24,13 @@ public abstract class AtaqueSupremo {
 
     // Marcar como usado
     protected void registrarUso(int danio) {
-        lanzador.registrarSupremoUsado();
-        usado = true; // importante: marcarlo al usar
-        IEInterfazGrafica.registrarEventoEspecial(
-            lanzador.getNombre() + " activo \"" + nombre + "\" --> " + danio + " de danio"
-        );
+    lanzador.registrarSupremoUsado();
+    usado = true;
+    Reportes.registrarEvento(
+        lanzador.getNombre() + " activo \"" + nombre + "\" --> " + danio + " de danio"
+    );
     }
-
+    
     // Getter para que Villano pueda consultar
     public boolean yaUsado() {
         return usado;

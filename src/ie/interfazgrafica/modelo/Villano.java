@@ -4,7 +4,6 @@
  */
 package ie.interfazgrafica.modelo;
 
-import ie.interfazgrafica.IEInterfazGrafica;
 
 public class Villano extends Personaje {
 
@@ -30,9 +29,8 @@ public class Villano extends Personaje {
         if (leviatanActivo) {
             // caster muerto → interrumpido
             if (!this.estaVivo()) {
-                IEInterfazGrafica.registrarEventoEspecial(
-                    getNombre() + " invoco \"Leviatan del Vacio\" (interrumpido)"
-                );
+                Reportes.registrarEvento(getNombre() + " invoco \"Leviatan del Vacio\" (interrumpido)");
+
                 leviatanActivo = false;
                 leviatanObjetivo = null;
                 return;
@@ -40,9 +38,8 @@ public class Villano extends Personaje {
 
             // objetivo muerto → interrumpido
             if (leviatanObjetivo == null || !leviatanObjetivo.estaVivo()) {
-                IEInterfazGrafica.registrarEventoEspecial(
-                    getNombre() + " invoco \"Leviatan del Vacio\" (interrumpido: objetivo caido)"
-                );
+                Reportes.registrarEvento(getNombre() + " invoco \"Leviatan del Vacio\" (interrumpido: objetivo caido)");
+
                 leviatanActivo = false;
                 leviatanObjetivo = null;
                 return;
@@ -55,9 +52,8 @@ public class Villano extends Personaje {
             if (leviatanTurnosRestantes <= 0) {
                 int danio = leviatanObjetivo.getVida(); // 100% de la vida actual
                 leviatanObjetivo.recibirDanioDirecto(danio);
-                IEInterfazGrafica.registrarEventoEspecial(
-                    getNombre() + " invoco \"Leviatán del Vacio\" → " + danio + " de danio"
-                );
+                Reportes.registrarEvento(getNombre() + " invoco \"Leviatan del Vacio\" (interrumpido: objetivo caido)");
+
                 leviatanActivo = false;
                 leviatanObjetivo = null;
             }
@@ -66,23 +62,19 @@ public class Villano extends Personaje {
 
     @Override
     public void decidirAccion(Personaje enemigo) {
-        // Si no tiene arma → invoca sí o sí
-        if (armaActual == null) {
-            invocarArma();
-            return;
-        }
-
-        // Si llega a 100% bendición y no usó supremo → castea Leviatán
-        if (!leviatanActivo && porcentajeBendicion == 100 && getSupremosUsados() == 0) {
+        // Usa Leviatán solo si está habilitado
+        if (!leviatanActivo && porcentajeBendicion == 100 && getSupremosUsados() == 0 && isSupremosHabilitados()) {
             new LeviatanDelVacio(this).ejecutar(enemigo);
             return;
         }
-
-        // 20% de probabilidad de invocar otra arma, si no ataca
-        if (rnd.nextDouble() < 0.2) {
+        if (porcentajeBendicion == 100 && getSupremosUsados() == 0 && !isSupremosHabilitados()) {
+    Reportes.registrarEvento(getNombre() + " alcanzó 100% de maldición pero los ataques supremos están DESACTIVADOS.");
+}
+        // Si no, combate normal
+        if (armaActual == null || rnd.nextDouble() < 0.3) {
             invocarArma();
         } else {
             atacar(enemigo);
         }
-    }
+    }   
 }
