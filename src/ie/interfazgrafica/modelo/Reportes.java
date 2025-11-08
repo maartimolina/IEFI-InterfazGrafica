@@ -1,9 +1,21 @@
 package ie.interfazgrafica.modelo;
 
 import java.util.List;
-
+import ie.interfazgrafica.vistas.VentanaReportes;
 public class Reportes {
-
+    public class ControladorReportes {
+  private final VentanaReportes vista;
+  public ControladorReportes(VentanaReportes v) {
+    this.vista = v;
+    // Ejemplo mínimo:
+    var eventos = Reportes.getEventos();
+    if (!eventos.isEmpty()) {
+      String ultimo = eventos.get(eventos.size()-1);
+      vista.getLblAtaquesEjecutados().setText("Último evento: " + ultimo);
+    }
+    // TODO: poblar tabla ranking con nombre, apodo/tipo, vida final, etc.
+  }
+}
     public static String generar(Personaje heroe, Personaje villano,
                                  List<String> eventosEspeciales,
                                  List<String> historial, int turnosTotales) {
@@ -47,7 +59,11 @@ public class Reportes {
 
         return sb.toString();
     }
+    private static final java.util.List<String> EVENTOS = new java.util.ArrayList<>();
 
+    public static void registrarEvento(String e) { EVENTOS.add(e); }
+    public static java.util.List<String> getEventos() { return EVENTOS; }
+    public static void limpiarEventos() { EVENTOS.clear(); }
     private static String formatearArmas(List<Arma> armas) {
         if (armas.isEmpty()) return "(ninguna)";
         java.util.LinkedHashMap<String,Integer> conteo = new java.util.LinkedHashMap<>();

@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package ie.interfazgrafica.vistas;
-
+import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+import javax.swing.JProgressBar;
 /**
  *
  * @author Valentina
@@ -16,7 +18,28 @@ public class VentanaBatalla extends javax.swing.JFrame {
     public VentanaBatalla() {
         initComponents();
     }
+    // === GETTERS PARA CONTROLADOR ===
+    public JLabel getLblBatallaActual() { return lblBatallaActual; }
+    public JLabel getLblTurnoActual() { return lblTurnoActual; }
+    public JLabel getLblNombre1() { return lblNombre1; }
+    public JLabel getLblNombre2() { return lblNombre2; }
+    public JLabel getLblLog() { return lblLog; }
 
+    public JProgressBar getPbVida1() { return pbVida1; }
+    public JProgressBar getPbVida2() { return pbVida2; }
+    public JProgressBar getPbBendicion1() { return pbBendicion1; }
+    public JProgressBar getPbBendicion2() { return pbBendicion2; }
+
+    public JMenuItem getPausar() { return Pausar; }
+    public JMenuItem getGuardarPartida() { return GuardarPartida; }
+    public JMenuItem getSalir() { return Salir; }
+    public JMenuItem getHistorialPartidas() { return HistorialPartidas; }
+    public JMenuItem getEstadisticas() { return Estadisticas; }
+    public JMenuItem getRanking() { return Ranking; }
+    public javax.swing.JLabel getLblArma1()   { return lblArma1; }
+    public javax.swing.JLabel getLblArma2()   { return lblArma2; }
+    public javax.swing.JLabel getLblEstado1() { return lblEstado1; }
+    public javax.swing.JLabel getLblEstado2() { return lblEstado2; }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -12,23 +12,20 @@ public class Heroe extends Personaje {
 
     @Override
     public void decidirAccion(Personaje enemigo) {
-        // Si no tiene arma → invoca sí o sí
-        if (armaActual == null) {
-            invocarArma();
-            return;
-        }
+        // Usa ataque supremo solo si está habilitado
+       if (porcentajeBendicion == 100 && getSupremosUsados() == 0 && isSupremosHabilitados()) {
+           new CastigoBendito(this).ejecutar(enemigo);
+           return;
+       }
+       if (porcentajeBendicion == 100 && getSupremosUsados() == 0 && !isSupremosHabilitados()) {
+    Reportes.registrarEvento(getNombre() + " alcanzó 100% de bendición pero los ataques supremos están DESACTIVADOS.");
+}
 
-        // Si llegó a 100% bendición y no usó supremo → lanza Castigo Bendito
-        if (porcentajeBendicion == 100 && getSupremosUsados() == 0) {
-            new CastigoBendito(this).ejecutar(enemigo);
-            return;
-        }
-
-        // 20% de probabilidad de invocar un arma nueva, si no ataca
-        if (rnd.nextDouble() < 0.2) {
-            invocarArma();
-        } else {
-            atacar(enemigo);
-        }
+       // Si no, ataca normalmente
+       if (armaActual == null || rnd.nextDouble() < 0.3) {
+           invocarArma();
+       } else {
+           atacar(enemigo);
+       }
     }
 }

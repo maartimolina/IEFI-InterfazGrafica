@@ -9,9 +9,9 @@ public abstract class Personaje {
     protected int fuerza;
     protected int defensaBase;
 
-    protected Arma armaActual; // arma equipada
-    protected Bendicion fuenteDePoder; // BendicionCelestial o BendicionDelVacio
-    protected int porcentajeBendicion; // 0..100
+    protected Arma armaActual;               // arma equipada
+    protected Bendicion fuenteDePoder;       // BendicionCelestial o BendicionDelVacio
+    protected int porcentajeBendicion;       // 0..100
 
     // Estados por turnos
     private int venenoTurnosRestantes = 0;
@@ -19,13 +19,17 @@ public abstract class Personaje {
     private int defensaBuffTurnosRestantes = 0;
     private int defensaBuffExtra = 0;
 
+    // Control del flujo
     protected final Random rnd = new Random();
 
-    // Lista de todas las armas invocadas (para el reporte)
+    // Para reportes
     protected ArrayList<Arma> armasInvocadas = new ArrayList<>();
-
-    // Contador de ataques supremos ejecutados
+    public static void registrarEvento(String e) {
+    Personaje.registrarEvento(e);
+}
+    // Supremos
     private int supremosUsados = 0;
+    private boolean supremosHabilitados = true;
 
     public Personaje(String nombre, int vida, int fuerza, int defensa,
                      Bendicion fuente, int porcentajeBendicion) {
@@ -37,24 +41,35 @@ public abstract class Personaje {
         this.porcentajeBendicion = Math.max(0, Math.min(100, porcentajeBendicion));
     }
 
+    // ===== Toggle de supremos =====
+    public void setSupremosHabilitados(boolean v) { this.supremosHabilitados = v; }
+    public boolean isSupremosHabilitados() { return supremosHabilitados; }
+
+    // ===== Helpers para UI / Controlador =====
+    public int getFuerzaActual() { return fuerza; }
+    public int getDanioArma() { return (armaActual != null) ? armaActual.getDanioExtra() : 0; }
+    public int getPorcentajeBendicion() { return porcentajeBendicion; }
+    public String getArmaNombre() { return (armaActual != null) ? armaActual.getNombre() : "-"; }
+    public String getEstadoTexto() {
+        StringBuilder s = new StringBuilder();
+        if (venenoTurnosRestantes > 0) s.append("Veneno(").append(venenoTurnosRestantes).append(") ");
+        if (defensaBuffTurnosRestantes > 0) s.append("DEF+(").append(defensaBuffTurnosRestantes).append(") ");
+        return s.length() == 0 ? "-" : s.toString().trim();
+    }
+
+    // ===== Getters base =====
     public boolean estaVivo() { return vida > 0; }
-
     public int getDefensaActual() { return defensaBase + defensaBuffExtra; }
-
     public String getNombre() { return nombre; }
     public int getVida() { return vida; }
     public Arma getArmaActual() { return armaActual; }
     public ArrayList<Arma> getArmasInvocadas() { return armasInvocadas; }
 
-    // ===== Supremos =====
-    public void registrarSupremoUsado() {
-        supremosUsados++;
-    }
+    // ===== Supremos usados =====
+    public void registrarSupremoUsado() { supremosUsados++; }
+    public int getSupremosUsados() { return supremosUsados; }
 
-    public int getSupremosUsados() {
-        return supremosUsados;
-    }
-
+    // ===== Estados por turno =====
     public void aplicarEstadosAlInicioDelTurno() {
         if (venenoTurnosRestantes > 0) {
             vida -= venenoDanioPorTurno;
@@ -63,20 +78,14 @@ public abstract class Personaje {
         }
         if (defensaBuffTurnosRestantes > 0) {
             defensaBuffTurnosRestantes--;
-            if (defensaBuffTurnosRestantes == 0) {
-                defensaBuffExtra = 0;
-            }
+            if (defensaBuffTurnosRestantes == 0) defensaBuffExtra = 0;
         }
-
-        // Aumenta bendición/maldición cada turno hasta 100
         if (porcentajeBendicion < 100) {
-            porcentajeBendicion += 10; // podés ajustar la velocidad
-            if (porcentajeBendicion > 100) {
-                porcentajeBendicion = 100;
-            }
+            porcentajeBendicion = Math.min(100, porcentajeBendicion + 10);
         }
     }
 
+    // ===== Combate =====
     public void recibirDanio(int danio) {
         int danioReal = Math.max(0, danio - getDefensaActual());
         vida -= danioReal;
@@ -88,11 +97,7 @@ public abstract class Personaje {
         if (vida < 0) vida = 0;
     }
 
-    public void curar(int puntos) {
-        if (puntos > 0) {
-            vida += puntos;
-        }
-    }
+    public void curar(int puntos) { if (puntos > 0) vida += puntos; }
 
     public void aplicarVeneno(int danioPorTurno, int turnos) {
         venenoDanioPorTurno = Math.max(venenoDanioPorTurno, danioPorTurno);
@@ -107,25 +112,21 @@ public abstract class Personaje {
     public void atacar(Personaje enemigo) {
         int base = fuerza + (armaActual != null ? armaActual.getDanioExtra() : 0);
         enemigo.recibirDanio(base);
-        if (armaActual != null) {
-            armaActual.usarEfectoEspecial(enemigo);
-        }
+        if (armaActual != null) armaActual.usarEfectoEspecial(enemigo);
     }
 
-    // Invocar arma: permite múltiples invocaciones y las guarda para el reporte
     public void invocarArma() {
         Arma nueva = fuenteDePoder.decidirArma(porcentajeBendicion);
         if (nueva != null) {
             nueva.setPortador(this);
-            armaActual = nueva;                 // se equipa el arma nueva
-            armasInvocadas.add(nueva);          // se guarda para el reporte
-         
+            armaActual = nueva;
+            armasInvocadas.add(nueva);
         } else {
             System.out.println(nombre + " no pudo invocar un arma.");
         }
     }
 
-    // Cada subclase define su estrategia de turno
+    // Cada subclase define su estrategia
     public abstract void decidirAccion(Personaje enemigo);
 
     @Override
@@ -136,4 +137,5 @@ public abstract class Personaje {
                 + ", %bend/mald=" + porcentajeBendicion
                 + ", supremosUsados=" + supremosUsados + "]";
     }
+    
 }

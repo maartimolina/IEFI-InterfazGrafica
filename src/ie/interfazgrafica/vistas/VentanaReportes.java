@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package ie.interfazgrafica.vistas;
-
+import javax.swing.JTable;
+import javax.swing.JLabel;
 /**
  *
  * @author Valentina
@@ -16,7 +17,13 @@ public class VentanaReportes extends javax.swing.JFrame {
     public VentanaReportes() {
         initComponents();
     }
+    // === GETTERS PARA CONTROLADOR ===
+    public JTable getTablaRanking() { return jTable1; }
 
+    public JLabel getLblMayorDaño() { return lblMayorDaño; }
+    public JLabel getLblBatallaLarga() { return lblBatallaLarga; }
+    public JLabel getLblArmasInvocadas1() { return lblArmasInvocadas1; }
+    public JLabel getLblAtaquesEjecutados() { return lblAtaquesEjecutados; }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,6 +45,8 @@ public class VentanaReportes extends javax.swing.JFrame {
         lblArmasInvocadas1 = new javax.swing.JLabel();
         PanelHistorial = new javax.swing.JPanel();
         lblHistorial2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -141,6 +150,10 @@ public class VentanaReportes extends javax.swing.JFrame {
         lblHistorial2.setForeground(new java.awt.Color(0, 102, 0));
         lblHistorial2.setText("HISTORIAL DE BATALLAS");
 
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane2.setViewportView(jTextArea2);
+
         javax.swing.GroupLayout PanelHistorialLayout = new javax.swing.GroupLayout(PanelHistorial);
         PanelHistorial.setLayout(PanelHistorialLayout);
         PanelHistorialLayout.setHorizontalGroup(
@@ -149,13 +162,19 @@ public class VentanaReportes extends javax.swing.JFrame {
                 .addGap(232, 232, 232)
                 .addComponent(lblHistorial2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(PanelHistorialLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         PanelHistorialLayout.setVerticalGroup(
             PanelHistorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelHistorialLayout.createSequentialGroup()
                 .addGap(9, 9, 9)
                 .addComponent(lblHistorial2)
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -221,13 +240,19 @@ public class VentanaReportes extends javax.swing.JFrame {
             }
         });
     }
+    public javax.swing.JTextArea getTxtHistorial() {
+    return jTextArea2;
+}
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelEstadistica;
     private javax.swing.JPanel PanelHistorial;
     private javax.swing.JPanel PanelRanking;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JLabel lblArmasInvocadas1;
     private javax.swing.JLabel lblAtaquesEjecutados;
     private javax.swing.JLabel lblBatallaLarga;
