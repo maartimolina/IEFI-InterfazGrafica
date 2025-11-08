@@ -50,7 +50,7 @@ public class VentanaReportes extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        PanelRanking.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 51)));
+        PanelRanking.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 51)));
 
         lblHistorial.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
         lblHistorial.setForeground(new java.awt.Color(0, 102, 0));
@@ -92,7 +92,7 @@ public class VentanaReportes extends javax.swing.JFrame {
                 .addGap(12, 12, 12))
         );
 
-        PanelEstadistica.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 51)));
+        PanelEstadistica.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 51)));
 
         lblHistorial1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
         lblHistorial1.setForeground(new java.awt.Color(0, 102, 0));
@@ -144,7 +144,7 @@ public class VentanaReportes extends javax.swing.JFrame {
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
-        PanelHistorial.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 51)));
+        PanelHistorial.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 51)));
 
         lblHistorial2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
         lblHistorial2.setForeground(new java.awt.Color(0, 102, 0));
