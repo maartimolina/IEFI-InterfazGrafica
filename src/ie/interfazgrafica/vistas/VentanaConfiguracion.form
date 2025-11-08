@@ -47,498 +47,6 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="ConfiguracionPartidas">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Configuracion de partidas">
-                <Property name="tabTitle" type="java.lang.String" value="Configuracion de partidas"/>
-              </JTabbedPaneConstraints>
-            </Constraint>
-          </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jPanel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jPanel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                                      <Component id="lblCantidadBatallas1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                                      <Component id="lblAtaques" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="ckActivar1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="btnIniciarBatalla" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="btnCargarBatalla" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="btnSalir" min="-2" pref="70" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="ckDesactivar" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Component id="cbCantidadBatallas" min="-2" pref="376" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="168" max="-2" attributes="0"/>
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="35" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="cbCantidadBatallas" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblCantidadBatallas1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="ckActivar1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ckDesactivar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblAtaques" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnIniciarBatalla" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnCargarBatalla" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnSalir" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="20" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel3">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Yu Gothic UI Semibold" size="18" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="66" red="0" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="CONFIGURACION DE PARTIDAS"/>
-              </Properties>
-            </Component>
-            <Container class="javax.swing.JPanel" name="jPanel2">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                    <LineBorder>
-                      <Color PropertyName="color" blue="33" green="66" red="0" type="rgb"/>
-                    </LineBorder>
-                  </Border>
-                </Property>
-              </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblBendicionInicial" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblDefensaInicial" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblFuerzaInicial" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblVidaInicial" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblVidaInicial1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="txtBendicionHeroe" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtDefensaHeroe" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtFuerzaHeroe" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtVidaHeroe" alignment="0" max="32767" attributes="0"/>
-                              <Component id="cbApodoHeroe" alignment="0" pref="377" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="242" max="32767" attributes="0"/>
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="214" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblVidaInicial1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cbApodoHeroe" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtVidaHeroe" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblVidaInicial" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtFuerzaHeroe" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblFuerzaInicial" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblDefensaInicial" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtDefensaHeroe" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblBendicionInicial" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtBendicionHeroe" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="25" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="lblVidaInicial">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Yu Gothic UI Semibold" size="14" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Vida inicial:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblFuerzaInicial">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Yu Gothic UI Semibold" size="14" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Fuerza inicial:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtVidaHeroe">
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtFuerzaHeroe">
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblDefensaInicial">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Yu Gothic UI Semibold" size="14" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Defensa inicial:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtDefensaHeroe">
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblBendicionInicial">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Yu Gothic UI Semibold" size="14" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Bendicion inicial:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtBendicionHeroe">
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel4">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="JUGADOR HEROE"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblVidaInicial1">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Yu Gothic UI Semibold" size="14" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Apodo:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="cbApodoHeroe">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="0"/>
-                    </Property>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Container class="javax.swing.JPanel" name="jPanel3">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                    <LineBorder>
-                      <Color PropertyName="color" blue="33" green="66" red="0" type="rgb"/>
-                    </LineBorder>
-                  </Border>
-                </Property>
-              </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblBendicionInicial1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblDefensaInicial1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblFuerzaInicial1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblVidaInicial2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblVidaInicial3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="txtBendicionVillano" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtDefensaVillano" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtFuerzaVillano" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtVidaVillano" alignment="0" max="32767" attributes="0"/>
-                              <Component id="cbApodoVillano" alignment="0" pref="377" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="228" max="32767" attributes="0"/>
-                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="214" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblVidaInicial3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cbApodoVillano" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtVidaVillano" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblVidaInicial2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtFuerzaVillano" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblFuerzaInicial1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblDefensaInicial1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtDefensaVillano" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblBendicionInicial1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtBendicionVillano" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="16" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="lblVidaInicial2">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Yu Gothic UI Semibold" size="14" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Vida inicial:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblFuerzaInicial1">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Yu Gothic UI Semibold" size="14" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Fuerza inicial:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtVidaVillano">
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtFuerzaVillano">
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblDefensaInicial1">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Yu Gothic UI Semibold" size="14" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Defensa inicial:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtDefensaVillano">
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblBendicionInicial1">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Yu Gothic UI Semibold" size="14" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Bendicion inicial:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtBendicionVillano">
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel5">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="JUGADOR VILLANO"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblVidaInicial3">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Yu Gothic UI Semibold" size="14" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Apodo:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="cbApodoVillano">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="0"/>
-                    </Property>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Component class="javax.swing.JButton" name="btnIniciarBatalla">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="66" red="0" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Iniciar Batalla"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnCargarBatalla">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="66" red="0" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Cargar Batalla"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnSalir">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="cc" green="cc" red="cc" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Salir"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder/>
-                  </Border>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblCantidadBatallas1">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Yu Gothic UI Semibold" size="14" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Cantidad de batallas:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="cbCantidadBatallas">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="2"/>
-                    <StringItem index="1" value="3"/>
-                    <StringItem index="2" value="5"/>
-                    <StringItem index="3" value=" "/>
-                  </StringArray>
-                </Property>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblAtaques">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Yu Gothic UI Semibold" size="14" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Ataques supremos:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="ckActivar1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Activar"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="ckDesactivar">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Desactivar"/>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
         <Container class="javax.swing.JPanel" name="RegistroJugadores">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -602,7 +110,7 @@
                               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="69" max="32767" attributes="0"/>
+                      <EmptySpace pref="91" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -835,6 +343,484 @@
                   <Color blue="0" green="66" red="0" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="REGISTRO DE PERSONAJES"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="ConfiguracionPartidas">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Configuracion de partidas">
+                <Property name="tabTitle" type="java.lang.String" value="Configuracion de partidas"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jPanel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jPanel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                                      <Component id="lblCantidadBatallas1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                                      <Component id="lblAtaques" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="ckActivar1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="btnIniciarBatalla" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="btnCargarBatalla" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="btnSalir" min="-2" pref="70" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="ckDesactivar" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="cbCantidadBatallas" min="-2" pref="376" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="168" max="-2" attributes="0"/>
+                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="327" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="cbCantidadBatallas" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblCantidadBatallas1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="ckActivar1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ckDesactivar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblAtaques" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnIniciarBatalla" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnCargarBatalla" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnSalir" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel3">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Yu Gothic UI Semibold" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="66" red="0" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="CONFIGURACION DE PARTIDAS"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JPanel" name="jPanel2">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                    <LineBorder>
+                      <Color PropertyName="color" blue="33" green="66" red="0" type="rgb"/>
+                    </LineBorder>
+                  </Border>
+                </Property>
+              </Properties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblBendicionInicial" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblDefensaInicial" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblFuerzaInicial" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblVidaInicial" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblVidaInicial1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="txtBendicionHeroe" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtDefensaHeroe" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtFuerzaHeroe" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtVidaHeroe" alignment="0" max="32767" attributes="0"/>
+                              <Component id="cbApodoHeroe" alignment="0" pref="377" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace pref="242" max="32767" attributes="0"/>
+                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="214" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblVidaInicial1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbApodoHeroe" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtVidaHeroe" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblVidaInicial" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtFuerzaHeroe" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblFuerzaInicial" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblDefensaInicial" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDefensaHeroe" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblBendicionInicial" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtBendicionHeroe" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="25" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="lblVidaInicial">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Yu Gothic UI Semibold" size="14" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Vida inicial:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblFuerzaInicial">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Yu Gothic UI Semibold" size="14" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Fuerza inicial:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtVidaHeroe">
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtFuerzaHeroe">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblDefensaInicial">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Yu Gothic UI Semibold" size="14" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Defensa inicial:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtDefensaHeroe">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblBendicionInicial">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Yu Gothic UI Semibold" size="14" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Bendicion inicial:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtBendicionHeroe">
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel4">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="JUGADOR HEROE"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblVidaInicial1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Yu Gothic UI Semibold" size="14" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Apodo:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="cbApodoHeroe">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="0"/>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="jPanel3">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                    <LineBorder>
+                      <Color PropertyName="color" blue="33" green="66" red="0" type="rgb"/>
+                    </LineBorder>
+                  </Border>
+                </Property>
+              </Properties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblBendicionInicial1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblDefensaInicial1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblFuerzaInicial1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblVidaInicial2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblVidaInicial3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="txtBendicionVillano" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtDefensaVillano" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtFuerzaVillano" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtVidaVillano" alignment="0" max="32767" attributes="0"/>
+                              <Component id="cbApodoVillano" alignment="0" pref="377" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace pref="228" max="32767" attributes="0"/>
+                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="214" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblVidaInicial3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbApodoVillano" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtVidaVillano" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblVidaInicial2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtFuerzaVillano" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblFuerzaInicial1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblDefensaInicial1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDefensaVillano" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblBendicionInicial1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtBendicionVillano" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="16" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="lblVidaInicial2">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Yu Gothic UI Semibold" size="14" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Vida inicial:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblFuerzaInicial1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Yu Gothic UI Semibold" size="14" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Fuerza inicial:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtVidaVillano">
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtFuerzaVillano">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblDefensaInicial1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Yu Gothic UI Semibold" size="14" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Defensa inicial:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtDefensaVillano">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblBendicionInicial1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Yu Gothic UI Semibold" size="14" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Bendicion inicial:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtBendicionVillano">
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel5">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="JUGADOR VILLANO"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblVidaInicial3">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Yu Gothic UI Semibold" size="14" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Apodo:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="cbApodoVillano">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="0"/>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="btnIniciarBatalla">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="66" red="0" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Iniciar Batalla"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnCargarBatalla">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="66" red="0" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Cargar Batalla"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnSalir">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Salir"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder/>
+                  </Border>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblCantidadBatallas1">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Yu Gothic UI Semibold" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Cantidad de batallas:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cbCantidadBatallas">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="2"/>
+                    <StringItem index="1" value="3"/>
+                    <StringItem index="2" value="5"/>
+                    <StringItem index="3" value=" "/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblAtaques">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Yu Gothic UI Semibold" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Ataques supremos:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="ckActivar1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Activar"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="ckDesactivar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Desactivar"/>
               </Properties>
             </Component>
           </SubComponents>

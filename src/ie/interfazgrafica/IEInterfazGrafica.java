@@ -1,25 +1,18 @@
 package ie.interfazgrafica;
 
-import ie.interfazgrafica.modelo.Villano;
-import ie.interfazgrafica.modelo.Reportes;
-import ie.interfazgrafica.modelo.Personaje;
-import ie.interfazgrafica.modelo.ValidacionApodos;
-import ie.interfazgrafica.modelo.Heroe;
-import java.util.*;
-import java.nio.file.*;
-import java.nio.charset.StandardCharsets;
-import java.io.IOException;
+import ie.interfazgrafica.vistas.VentanaConfiguracion;
+import ie.interfazgrafica.controladores.ControladorConfiguracion;
+import javax.swing.SwingUtilities;
 
 public class IEInterfazGrafica {
 
-   
-     public static void main(String[] args) {
-        javax.swing.SwingUtilities.invokeLater(() -> {
-            ie.interfazgrafica.vistas.VentanaConfiguracion v =
-                new ie.interfazgrafica.vistas.VentanaConfiguracion();
-            new ie.interfazgrafica.controladores.ControladorConfiguracion(v);
-            v.setLocationRelativeTo(null);
-            v.setVisible(true);
+    public static void main(String[] args) {
+        // Ejecutar la aplicación en modo gráfico
+        SwingUtilities.invokeLater(() -> {
+            VentanaConfiguracion ventana = new VentanaConfiguracion();
+            new ControladorConfiguracion(ventana);
+            ventana.setLocationRelativeTo(null);
+            ventana.setVisible(true);
         });
     }
 }
