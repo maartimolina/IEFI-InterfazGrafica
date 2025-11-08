@@ -2,3 +2,5 @@ Heroe: Pumpi | Villano: LordDark | Ganador: LordDark | Turnos: 14
 Heroe: Pumpi | Villano: LordDark | Ganador: Pumpi | Turnos: 7
 Heroe: Mauri | Villano: LautiPuto | Ganador: Mauri | Turnos: 17
 Heroe: vale | Villano: nose | Ganador: vale | Turnos: 9
+2025-11-08 17:59;Andy;Ruel;Andy;16
+2025-11-08 18:04;AndyCapo;AgusTrolo;AndyCapo;14
