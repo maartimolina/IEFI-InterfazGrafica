@@ -1,16 +1,2 @@
-Heroe: Pumpi | Villano: LordDark | Ganador: LordDark | Turnos: 14
-Heroe: Pumpi | Villano: LordDark | Ganador: Pumpi | Turnos: 7
-Heroe: Mauri | Villano: LautiPuto | Ganador: Mauri | Turnos: 17
-Heroe: vale | Villano: nose | Ganador: vale | Turnos: 9
-2025-11-08 17:59;Andy;Ruel;Andy;16
-2025-11-08 18:04;AndyCapo;AgusTrolo;AndyCapo;14
-2025-11-08 22:23;Mar;Campesino;Mar;32
-2025-11-08 22:32;MAR;bordiga;MAR;8
-2025-11-08 22:42;Martina;Campesino;Martina;14
-2025-11-08 22:44;Martina;Campesino;Campesino;21
-2025-11-08 22:48;Martina;Campesino;Campesino;33
-2025-11-08 23:15;Martina;bordiga;Martina;28
-2025-11-09 09:45;Martina;bordiga;Martina;16
-2025-11-09 09:46;Martina;bordiga;bordiga;5
-2025-11-09 10:02;Martina;bordiga;bordiga;5
-2025-11-09 10:03;Martina;bordiga;Martina;8
+2025-11-09 11:13;El Guardián Blanco;El Devoralmas;El Devoralmas;9
+2025-11-09 11:14;El Portador de Luz;La Sombra Roja;El Portador de Luz;12

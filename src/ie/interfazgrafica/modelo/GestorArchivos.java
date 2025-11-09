@@ -7,20 +7,33 @@ import java.util.*;
 
 /**
  * Persistencia simple en archivos de texto.
+ * Formatos:
  * - historial_batallas.txt : fecha;heroe;villano;ganador;turnos
  * - personajes.txt         : nombre;tipo;vidaFinal;victorias;supremosUsados;armasInvocadas
  * - estadisticas_danio_max.txt : número (mayor daño histórico)
+ * - jugadores.txt          : nombre;apodo;tipo
  */
 public class GestorArchivos {
 
-    private static final String ARCHIVO_HISTORIAL  = "historial_batallas.txt";
-    private static final String ARCHIVO_PERSONAJES = "personajes.txt";
-    private static final String ARCHIVO_DANIO_MAX  = "estadisticas_danio_max.txt";
-    private static final String ARCHIVO_JUGADORES  = "jugadores.txt";
+    // ===================== RUTAS Y FORMATOS =====================
+    private static final String ARCHIVO_HISTORIAL   = "historial_batallas.txt";
+    private static final String ARCHIVO_PERSONAJES  = "personajes.txt";
+    private static final String ARCHIVO_DANIO_MAX   = "estadisticas_danio_max.txt";
+    private static final String ARCHIVO_JUGADORES   = "jugadores.txt";
+
+    private static final String DIR_ARCHIVOS            = "archivos";
+    private static final String DIR_PARTIDAS_GUARDADAS  = DIR_ARCHIVOS + File.separator + "partidasGuardadas";
 
     private static final DateTimeFormatter FMT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
-    // -------------------- HISTORIAL --------------------
+    // Crea carpetas necesarias apenas se carga la clase
+    static {
+        asegurarDir(DIR_ARCHIVOS);
+        asegurarDir(DIR_PARTIDAS_GUARDADAS);
+    }
+
+    // ========================= API PÚBLICA =========================
+    // -------- HISTORIAL --------
     public static void guardarBatalla(String heroe, String villano, String ganador, int turnos) {
         String fecha = LocalDateTime.now().format(FMT);
         String linea = String.format("%s;%s;%s;%s;%d", fecha, heroe, villano, ganador, turnos);
@@ -31,7 +44,7 @@ public class GestorArchivos {
         return leerArchivoCSV(ARCHIVO_HISTORIAL);
     }
 
-    // -------------------- RANKING ----------------------
+    // -------- RANKING (PERSONAJES) --------
     public static void guardarPersonaje(String apodo, String tipo,
                                         int vidaFinal, int victorias,
                                         int supremosUsados, int armasInvocadas) {
@@ -45,8 +58,8 @@ public class GestorArchivos {
         return leerArchivoCSV(ARCHIVO_PERSONAJES);
     }
 
-    // -------------------- ESTADÍSTICAS -----------------
-    /** Actualiza el mayor daño histórico si 'danio' es mayor al guardado. */
+    // -------- ESTADÍSTICAS (MAYOR DAÑO) --------
+    /** Actualiza el mayor daño histórico si 'danio' supera el almacenado. */
     public static void registrarDanio(int danio) {
         if (danio <= 0) return;
         int actual = leerMayorDanio();
@@ -55,7 +68,7 @@ public class GestorArchivos {
         }
     }
 
-    /** Devuelve el mayor daño histórico; si no existe el archivo, retorna 0. */
+    /** Devuelve el mayor daño histórico (o 0 si no hay dato). */
     public static int leerMayorDanio() {
         try (BufferedReader br = new BufferedReader(new FileReader(ARCHIVO_DANIO_MAX))) {
             String s = br.readLine();
@@ -65,54 +78,7 @@ public class GestorArchivos {
         }
     }
 
-    // -------------------- HELPERS ----------------------
-    private static List<String[]> leerArchivoCSV(String ruta) {
-        List<String[]> filas = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(ruta))) {
-            String linea;
-            while ((linea = br.readLine()) != null) {
-                if (!linea.trim().isEmpty()) filas.add(linea.split(";", -1));
-            }
-        } catch (IOException ignored) { }
-        return filas;
-    }
-
-    private static void escribirLineaAppend(String ruta, String linea) {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(ruta, true))) {
-            bw.write(linea);
-            bw.newLine();
-        } catch (IOException e) {
-            System.err.println("Error al escribir (" + ruta + "): " + e.getMessage());
-        }
-    }
-
-    private static void escribirArchivoReemplazar(String ruta, String contenido) {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(ruta, false))) {
-            bw.write(contenido);
-        } catch (IOException e) {
-            System.err.println("Error al reemplazar (" + ruta + "): " + e.getMessage());
-        }
-    }
-
-    private static String nullSafe(String s) {
-        return (s == null) ? "" : s.replaceAll("[\\r\\n]", " ").trim();
-    }
-
-    // -------------------- CARPETAS ----------------------
-    private static final String DIR_ARCHIVOS              = "archivos";
-    private static final String DIR_PARTIDAS_GUARDADAS    = DIR_ARCHIVOS + File.separator + "partidasGuardadas";
-
-    static {
-        asegurarDir(DIR_ARCHIVOS);
-        asegurarDir(DIR_PARTIDAS_GUARDADAS);
-    }
-
-    private static void asegurarDir(String d) {
-        File f = new File(d);
-        if (!f.exists()) f.mkdirs();
-    }
-
-    // === Transcript de una batalla (log completo) ===
+    // -------- TRANSCRIPTO (LOG COMPLETO DE BATALLA) --------
     public static File guardarTranscriptBatalla(List<String> eventos,
                                                 String heroe, String villano,
                                                 String ganador, int turnos) {
@@ -131,7 +97,7 @@ public class GestorArchivos {
         return out;
     }
 
-    // === PARTIDAS GUARDADAS (Guardar/Cargar) ===
+    // -------- PARTIDAS GUARDADAS --------
     public static class PartidaGuardada {
         public String apodoHeroe, apodoVillano;
         public int vidaH, fuerzaH, defensaH, bendH;
@@ -164,11 +130,11 @@ public class GestorArchivos {
         return out;
     }
 
-    public static java.util.List<File> listarPartidasGuardadas() {
+    public static List<File> listarPartidasGuardadas() {
         File dir = new File(DIR_PARTIDAS_GUARDADAS);
         File[] arr = dir.listFiles((d, name) -> name.startsWith("partida_") && name.endsWith(".txt"));
-        java.util.List<File> out = new java.util.ArrayList<>();
-        if (arr != null) java.util.Arrays.sort(arr);
+        List<File> out = new ArrayList<>();
+        if (arr != null) Arrays.sort(arr);
         if (arr != null) for (File f : arr) out.add(f);
         return out;
     }
@@ -201,13 +167,10 @@ public class GestorArchivos {
         return p;
     }
 
-    private static int parseInt(String s) {
-        try { return Integer.parseInt(s.trim()); } catch (Exception e) { return 0; }
-    }
-
-    // ====== JUGADORES (persistencia lista de registro) ======
-    public static java.util.Map<String,String> cargarJugadoresMapa() {
-        java.util.Map<String,String> map = new java.util.LinkedHashMap<>();
+    // -------- JUGADORES --------
+    /** Carga un mapa apodo->nombre desde jugadores.txt. */
+    public static Map<String,String> cargarJugadoresMapa() {
+        Map<String,String> map = new LinkedHashMap<>();
         for (String[] r : leerArchivoCSV(ARCHIVO_JUGADORES)) {
             if (r.length >= 2) {
                 String nombre = r[0];
@@ -218,10 +181,9 @@ public class GestorArchivos {
         return map;
     }
 
-    // Formato: nombre;apodo;tipo  (tipo = "Héroe" o "Villano")
+    /** Formato guardado: nombre;apodo;tipo  (tipo = "Héroe" o "Villano") */
     public static void guardarJugador(String nombre, String apodo, String tipo) {
-        // evitar duplicados por apodo
-        if (existeJugador(apodo)) return;
+        if (existeJugador(apodo)) return; // evita duplicados por apodo
         String linea = String.format("%s;%s;%s", nullSafe(nombre), nullSafe(apodo), nullSafe(tipo));
         escribirLineaAppend(ARCHIVO_JUGADORES, linea);
     }
@@ -233,22 +195,64 @@ public class GestorArchivos {
         return false;
     }
 
-    public static java.util.List<String[]> leerJugadores() {
+    public static List<String[]> leerJugadores() {
         return leerArchivoCSV(ARCHIVO_JUGADORES);
     }
 
-    /** Borra jugador por apodo reescribiendo el archivo filtrado */
+    /** Borra un jugador por apodo reescribiendo el archivo filtrado. */
     public static void borrarJugadorPorApodo(String apodo) {
-        java.util.List<String[]> todos = leerJugadores();
+        List<String[]> todos = leerJugadores();
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(ARCHIVO_JUGADORES, false))) {
             for (String[] j : todos) {
                 if (j.length < 2) continue;
-                if (j[1].equalsIgnoreCase(apodo)) continue; // saltar el que se elimina
+                if (j[1].equalsIgnoreCase(apodo)) continue; // salta el que se elimina
                 bw.write(String.join(";", j));
                 bw.newLine();
             }
         } catch (IOException e) {
             System.err.println("Error al borrar jugador: " + e.getMessage());
         }
+    }
+
+    // ======================== HELPERS PRIVADOS ========================
+    private static void asegurarDir(String d) {
+        File f = new File(d);
+        if (!f.exists()) f.mkdirs();
+    }
+
+    private static List<String[]> leerArchivoCSV(String ruta) {
+        List<String[]> filas = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(ruta))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                if (!linea.trim().isEmpty()) filas.add(linea.split(";", -1));
+            }
+        } catch (IOException ignored) { }
+        return filas;
+    }
+
+    private static void escribirLineaAppend(String ruta, String linea) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(ruta, true))) {
+            bw.write(linea);
+            bw.newLine();
+        } catch (IOException e) {
+            System.err.println("Error al escribir (" + ruta + "): " + e.getMessage());
+        }
+    }
+
+    private static void escribirArchivoReemplazar(String ruta, String contenido) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(ruta, false))) {
+            bw.write(contenido);
+        } catch (IOException e) {
+            System.err.println("Error al reemplazar (" + ruta + "): " + e.getMessage());
+        }
+    }
+
+    private static String nullSafe(String s) {
+        return (s == null) ? "" : s.replaceAll("[\\r\\n]", " ").trim();
+    }
+
+    private static int parseInt(String s) {
+        try { return Integer.parseInt(s.trim()); } catch (Exception e) { return 0; }
     }
 }

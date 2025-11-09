@@ -1,3 +1,0 @@
-Héroe: Martina | Villano: Campesino
-Ganador: Campesino | Turnos: 33
-------------------------------------------------------------

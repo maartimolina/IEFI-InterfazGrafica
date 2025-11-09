@@ -1,3 +1,4 @@
-bordiga;bordiga;Villano
-Alvaro;Campesino;Villano
-Martina;Martina;Héroe
+Malrukh;El Devoralmas;Villano
+Xevran;La Sombra Roja;Villano
+Kael;El Guardián Blanco;Héroe
+Arvel;El Portador de Luz;Héroe

@@ -1,3 +1,0 @@
-Héroe: MAR | Villano: bordiga
-Ganador: MAR | Turnos: 8
-------------------------------------------------------------

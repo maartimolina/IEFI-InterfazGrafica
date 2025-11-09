@@ -1,3 +1,0 @@
-Héroe: Mar | Villano: Campesino
-Ganador: Mar | Turnos: 32
-------------------------------------------------------------

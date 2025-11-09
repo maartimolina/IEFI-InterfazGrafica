@@ -11,12 +11,13 @@ public class ControladorReportes {
 
     private final VentanaReportes vista;
 
+    // Recibe la vista y deja todo listo para mostrar datos
     public ControladorReportes(VentanaReportes vista) {
         this.vista = vista;
         inicializarVista();
     }
 
-    // ======================== CONFIG INICIAL ========================
+    // Ajustes iniciales de la ventana y carga de datos
     private void inicializarVista() {
         vista.setTitle("Reportes de Batalla");
         vista.setLocationRelativeTo(null);
@@ -25,8 +26,8 @@ public class ControladorReportes {
         cargarEstadisticas();
         cargarHistorial();
     }
-
-    // ======================== RANKING (consolidado) ========================
+    
+    // Arma el ranking consolidando registros por apodo y ordenando por victorias
     private void cargarRanking() {
         JTable tabla = vista.getTablaRanking();
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
@@ -78,8 +79,8 @@ public class ControladorReportes {
             });
         }
     }
-
-    // ======================== ESTADÍSTICAS ========================
+    
+    // Calcula y muestra estadísticas generales en labels
     private void cargarEstadisticas() {
         int mayorDanio = GestorArchivos.leerMayorDanio();
 
@@ -103,8 +104,8 @@ public class ControladorReportes {
         vista.getLblArmasInvocadas1().setText("Total de armas invocadas: " + totalArmas);
         vista.getLblAtaquesEjecutados().setText("Ataques supremos ejecutados: " + totalSupremos);
     }
-
-    // ======================== HISTORIAL (textarea) ========================
+    
+    // Muestra el historial de batallas en el JTextArea
     private void cargarHistorial() {
         JTextArea area = vista.getTxtHistorial();
         List<String[]> batallas = GestorArchivos.leerHistorial();
@@ -134,13 +135,13 @@ public class ControladorReportes {
         area.setText(sb.toString());
         area.setCaretPosition(0);
     }
-
-    // ======================== HELPERS ========================
+    
+    // Parseo seguro de enteros (si falla, devuelve 0)
     private int parseIntSafe(String s) {
         try { return Integer.parseInt(s.trim()); } catch (Exception e) { return 0; }
     }
 
-    // ↓↓↓ SOLO UNA definición de esta clase interna ↓↓↓
+    // Estructura auxiliar para acumular datos de ranking por jugador
     private static class FilaRanking {
         String nombreReal, apodo, tipo;
         int vidaFinal, victorias, supremosUsados, armasInvocadas;

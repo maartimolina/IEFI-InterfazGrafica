@@ -362,18 +362,15 @@ public class VentanaBatalla extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void HistorialPartidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistorialPartidasActionPerformed
-        VentanaReportes ventana = new VentanaReportes();
-        ventana.setVisible(true);
+        
     }//GEN-LAST:event_HistorialPartidasActionPerformed
 
     private void EstadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstadisticasActionPerformed
-        VentanaReportes ventana = new VentanaReportes();
-        ventana.setVisible(true);
+        
     }//GEN-LAST:event_EstadisticasActionPerformed
 
     private void RankingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RankingActionPerformed
-        VentanaReportes ventana = new VentanaReportes();
-        ventana.setVisible(true);
+        
     }//GEN-LAST:event_RankingActionPerformed
 
     private void GuardarPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarPartidaActionPerformed
