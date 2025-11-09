@@ -4,6 +4,7 @@ import ie.interfazgrafica.vistas.*;
 import ie.interfazgrafica.modelo.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.util.Random;
 
 public class ControladorConfiguracion {
 
@@ -16,6 +17,20 @@ public class ControladorConfiguracion {
         DefaultTableModel modelo = (DefaultTableModel) vista.getTablaPersonajes().getModel();
         modelo.setRowCount(0);
         cargarJugadoresPersistidos();
+
+        // =============================
+        // Valores iniciales por defecto
+        // =============================
+        Random rnd = new Random();
+        vista.getTxtVidaHeroe().setText(String.valueOf(100 + rnd.nextInt(61))); 
+        vista.getTxtFuerzaHeroe().setText(String.valueOf(15 + rnd.nextInt(11)));
+        vista.getTxtDefensaHeroe().setText(String.valueOf(8 + rnd.nextInt(6)));
+        vista.getTxtBendicionHeroe().setText(String.valueOf(30 + rnd.nextInt(71))); 
+
+        vista.getTxtVidaVillano().setText(String.valueOf(100 + rnd.nextInt(61)));
+        vista.getTxtFuerzaVillano().setText(String.valueOf(15 + rnd.nextInt(11)));
+        vista.getTxtDefensaVillano().setText(String.valueOf(8 + rnd.nextInt(6)));
+        vista.getTxtBendicionVillano().setText(String.valueOf(30 + rnd.nextInt(71)));
     }
 
     private void inicializarEventos() {
@@ -133,7 +148,7 @@ public class ControladorConfiguracion {
         String[] opciones = snaps.stream().map(java.io.File::getName).toArray(String[]::new);
         String elegido = (String) JOptionPane.showInputDialog(
                 vista,
-                "Seleccioná un Batalla:",
+                "Selecciona un Batalla:",
                 "Cargar batalla",
                 JOptionPane.PLAIN_MESSAGE,
                 null,
@@ -175,7 +190,7 @@ public class ControladorConfiguracion {
         vista.getCkActivar1().setSelected(s.supremos);
         vista.getCkDesactivar().setSelected(!s.supremos);
 
-        JOptionPane.showMessageDialog(vista, "Partida cargada. Podés iniciar la batalla.");
+        JOptionPane.showMessageDialog(vista, "Partida cargada. Podes iniciar la batalla.");
     }
 
 
@@ -194,13 +209,13 @@ public class ControladorConfiguracion {
 
         // Validar campos vacíos
         if (nombre.isEmpty() || apodo.isEmpty()) {
-            JOptionPane.showMessageDialog(vista, "Completá nombre y apodo.", "Faltan datos", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(vista, "Completa nombre y apodo.", "Faltan datos", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
         // Validar tipo
         if (!esHeroe && !esVillano) {
-            JOptionPane.showMessageDialog(vista, "Seleccioná si es Héroe o Villano.",
+            JOptionPane.showMessageDialog(vista, "Selecciona si es Heroe o Villano.",
                     "Faltan datos", JOptionPane.WARNING_MESSAGE);
             return;
         }
@@ -208,7 +223,7 @@ public class ControladorConfiguracion {
         // Validar apodo con tu clase modelo
         if (!ValidacionApodos.esValido(apodo)) {
             JOptionPane.showMessageDialog(vista,
-                    "Apodo inválido. Debe tener entre 3 y 10 letras y solo espacios.",
+                    "Apodo invalido. Debe tener entre 3 y 10 letras y solo espacios.",
                     "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -219,13 +234,13 @@ public class ControladorConfiguracion {
         for (int i = 0; i < modelo.getRowCount(); i++) {
             Object cell = modelo.getValueAt(i, 1);
             if (cell != null && cell.toString().equalsIgnoreCase(apodo)) {
-                JOptionPane.showMessageDialog(vista, "Ese apodo ya está registrado.",
+                JOptionPane.showMessageDialog(vista, "Ese apodo ya esta registrado.",
                         "Duplicado", JOptionPane.WARNING_MESSAGE);
                 return;
             }
         }
 
-        String tipo = esHeroe ? "Héroe" : "Villano";
+        String tipo = esHeroe ? "Heroe" : "Villano";
         modelo.addRow(new Object[]{nombre, apodo, tipo});
 
         if (esHeroe) vista.getCbApodoHeroe().addItem(apodo);
@@ -246,7 +261,7 @@ public class ControladorConfiguracion {
 
         if (fila == -1) {
             JOptionPane.showMessageDialog(vista,
-                    "Seleccioná una fila para eliminar.",
+                    "Selecciona una fila para eliminar.",
                     "Advertencia",
                     JOptionPane.WARNING_MESSAGE);
             return;
@@ -257,7 +272,7 @@ public class ControladorConfiguracion {
 
         if (apodoObj == null || tipoObj == null) {
             JOptionPane.showMessageDialog(vista,
-                    "Esa fila contiene datos vacíos o inválidos.",
+                    "Esa fila contiene datos vacios o invalidos.",
                     "Error",
                     JOptionPane.ERROR_MESSAGE);
             return;
@@ -268,7 +283,7 @@ public class ControladorConfiguracion {
 
         modelo.removeRow(fila);
 
-        if ("Héroe".equalsIgnoreCase(tipo)) {
+        if ("Heroe".equalsIgnoreCase(tipo)) {
             vista.getCbApodoHeroe().removeItem(apodo);
         } else if ("Villano".equalsIgnoreCase(tipo)) {
             vista.getCbApodoVillano().removeItem(apodo);

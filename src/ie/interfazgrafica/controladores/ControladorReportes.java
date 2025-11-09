@@ -100,7 +100,7 @@ public class ControladorReportes {
         }
 
         vista.getLblMayorDaño().setText("Mayor daño en un solo ataque: " + mayorDanio);
-        vista.getLblBatallaLarga().setText("Batalla más larga: " + batallaMasLarga + " turnos");
+        vista.getLblBatallaLarga().setText("Batalla mas larga: " + batallaMasLarga + " turnos");
         vista.getLblArmasInvocadas1().setText("Total de armas invocadas: " + totalArmas);
         vista.getLblAtaquesEjecutados().setText("Ataques supremos ejecutados: " + totalSupremos);
     }
@@ -111,20 +111,20 @@ public class ControladorReportes {
         List<String[]> batallas = GestorArchivos.leerHistorial();
 
         if (batallas.isEmpty()) {
-            area.setText("No hay batallas registradas todavía.");
+            area.setText("No hay batallas registradas todavia.");
             area.setCaretPosition(0);
             return;
         }
 
         StringBuilder sb = new StringBuilder();
-        sb.append("Últimas batallas registradas:\n")
+        sb.append("Ultimas batallas registradas:\n")
           .append("------------------------------------------------------------\n");
 
         // fecha;heroe;villano;ganador;turnos
         for (String[] b : batallas) {
             if (b.length >= 5) {
                 sb.append("Fecha: ").append(b[0])
-                  .append(" | Héroe: ").append(b[1])
+                  .append(" | Heroe: ").append(b[1])
                   .append(" | Villano: ").append(b[2])
                   .append(" | Ganador: ").append(b[3])
                   .append(" | Turnos: ").append(b[4])

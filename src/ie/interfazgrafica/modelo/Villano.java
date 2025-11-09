@@ -68,7 +68,7 @@ public class Villano extends Personaje {
             return;
         }
         if (porcentajeBendicion == 100 && getSupremosUsados() == 0 && !isSupremosHabilitados()) {
-    Reportes.registrarEvento(getNombre() + " alcanzó 100% de maldición pero los ataques supremos están DESACTIVADOS.");
+    Reportes.registrarEvento(getNombre() + " alcanzo 100% de maldicion pero los ataques supremos estan DESACTIVADOS.");
 }
         // Si no, combate normal
         if (armaActual == null || rnd.nextDouble() < 0.3) {

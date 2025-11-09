@@ -92,7 +92,7 @@ public class ControladorBatalla {
 
         actualizarBarras();
 
-        agregarEvento("🔥 Comienza la batalla entre " + heroe.getNombre() + " y " + villano.getNombre());
+        agregarEvento("🔥Comienza la batalla entre " + heroe.getNombre() + " y " + villano.getNombre());
         if (!ataquesSupremos) agregarEvento(" Ataques supremos DESACTIVADOS para esta partida.");
         else agregarEvento(" Ataques supremos ACTIVADOS para esta partida.");
     }
@@ -140,9 +140,9 @@ public class ControladorBatalla {
         if (dano > 0) {
             GestorArchivos.registrarDanio(dano);
             if (atacante == heroe) {
-                agregarEvento(heroe.getNombre() + " causa " + dano + " de daño a " + villano.getNombre());
+                agregarEvento(heroe.getNombre() + " causa " + dano + " de danio a " + villano.getNombre());
             } else {
-                agregarEvento(villano.getNombre() + " causa " + dano + " de daño a " + heroe.getNombre());
+                agregarEvento(villano.getNombre() + " causa " + dano + " de danio a " + heroe.getNombre());
             }
         }
 
@@ -173,7 +173,7 @@ public class ControladorBatalla {
                 Reportes.getEventos(), heroe.getNombre(), villano.getNombre(), ganador, turnoActual
         );
         GestorArchivos.guardarPersonaje(
-                heroe.getNombre(), "Héroe", heroe.getVida(), heroe.estaVivo()?1:0, heroe.getSupremosUsados(), heroe.getArmasInvocadas().size()
+                heroe.getNombre(), "Heroe", heroe.getVida(), heroe.estaVivo()?1:0, heroe.getSupremosUsados(), heroe.getArmasInvocadas().size()
         );
         GestorArchivos.guardarPersonaje(
                 villano.getNombre(), "Villano", villano.getVida(), villano.estaVivo()?1:0, villano.getSupremosUsados(), villano.getArmasInvocadas().size()

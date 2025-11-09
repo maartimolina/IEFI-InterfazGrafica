@@ -18,7 +18,7 @@ public class Heroe extends Personaje {
            return;
        }
        if (porcentajeBendicion == 100 && getSupremosUsados() == 0 && !isSupremosHabilitados()) {
-    Reportes.registrarEvento(getNombre() + " alcanzó 100% de bendición pero los ataques supremos están DESACTIVADOS.");
+    Reportes.registrarEvento(getNombre() + " alcanzo 100% de bendicion pero los ataques supremos estan DESACTIVADOS.");
 }
 
        // Si no, ataca normalmente

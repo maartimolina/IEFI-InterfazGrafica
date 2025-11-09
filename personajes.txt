@@ -22,3 +22,9 @@ El Guardián Blanco;Héroe;84;1;0;1
 El Devoralmas;Villano;0;0;0;3
 El Guardián Blanco;Héroe;56;1;1;3
 El Devoralmas;Villano;0;0;0;2
+El Guardián Blanco;Héroe;160;1;1;2
+El Devoralmas;Villano;0;0;1;2
+El Guardián Blanco;Héroe;193;1;1;3
+El Devoralmas;Villano;0;0;1;6
+El Guardián Blanco;Héroe;127;1;1;3
+El Devoralmas;Villano;0;0;1;6

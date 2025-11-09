@@ -87,7 +87,7 @@ public class GestorArchivos {
         File out = new File(DIR_ARCHIVOS, "batalla_" + ts + ".txt");
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(out))) {
-            bw.write("Héroe: " + heroe + " | Villano: " + villano); bw.newLine();
+            bw.write("Heroe: " + heroe + " | Villano: " + villano); bw.newLine();
             bw.write("Ganador: " + ganador + " | Turnos: " + turnos); bw.newLine();
             bw.write("------------------------------------------------------------"); bw.newLine();
             for (String e : eventos) { bw.write(e); bw.newLine(); }
