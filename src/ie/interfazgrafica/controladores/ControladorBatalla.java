@@ -194,8 +194,8 @@ public class ControladorBatalla {
     }
 
     private void guardarPartida() {
-        // toma lo que está en pantalla/estado y lo guarda como snapshot
-        GestorArchivos.Snapshot s = new GestorArchivos.Snapshot();
+        // toma lo que está en pantalla/estado y lo guarda como partidaGuardada
+        GestorArchivos.PartidaGuardada s = new GestorArchivos.PartidaGuardada();
         s.apodoHeroe = heroe.getNombre();
         s.apodoVillano = villano.getNombre();
 
@@ -213,7 +213,7 @@ public class ControladorBatalla {
         s.cantidadBatallas = cantidadBatallas;
         s.supremos = ataquesSupremos;
 
-        java.io.File f = GestorArchivos.guardarSnapshot(s);
+        java.io.File f = GestorArchivos.guardarPartidaGuardada(s);
         JOptionPane.showMessageDialog(vista, "Partida guardada en:\n" + f.getAbsolutePath());
     }
 

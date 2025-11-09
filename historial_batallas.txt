@@ -10,3 +10,7 @@ Heroe: vale | Villano: nose | Ganador: vale | Turnos: 9
 2025-11-08 22:44;Martina;Campesino;Campesino;21
 2025-11-08 22:48;Martina;Campesino;Campesino;33
 2025-11-08 23:15;Martina;bordiga;Martina;28
+2025-11-09 09:45;Martina;bordiga;Martina;16
+2025-11-09 09:46;Martina;bordiga;bordiga;5
+2025-11-09 10:02;Martina;bordiga;bordiga;5
+2025-11-09 10:03;Martina;bordiga;Martina;8

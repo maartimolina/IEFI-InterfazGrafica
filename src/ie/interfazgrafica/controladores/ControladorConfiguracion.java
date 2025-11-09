@@ -129,7 +129,7 @@ public class ControladorConfiguracion {
     // BOTONES SECUNDARIOS
     // ==========================================================
     private void cargarBatalla() {
-        java.util.List<java.io.File> snaps = GestorArchivos.listarSnapshots();
+        java.util.List<java.io.File> snaps = GestorArchivos.listarPartidasGuardadas();
         if (snaps.isEmpty()) {
             JOptionPane.showMessageDialog(vista, "No hay partidas guardadas aún.");
             return;
@@ -139,7 +139,7 @@ public class ControladorConfiguracion {
         String[] opciones = snaps.stream().map(java.io.File::getName).toArray(String[]::new);
         String elegido = (String) JOptionPane.showInputDialog(
                 vista,
-                "Seleccioná un snapshot:",
+                "Seleccioná un Batalla:",
                 "Cargar batalla",
                 JOptionPane.PLAIN_MESSAGE,
                 null,
@@ -151,7 +151,7 @@ public class ControladorConfiguracion {
         java.io.File sel = snaps.stream().filter(f -> f.getName().equals(elegido)).findFirst().orElse(null);
         if (sel == null) return;
 
-        GestorArchivos.Snapshot s = GestorArchivos.leerSnapshot(sel);
+        GestorArchivos.PartidaGuardada s = GestorArchivos.leerPartidaGuardada(sel);
 
         // Cargar apodos en combos (si no estaban)
         if (((javax.swing.DefaultComboBoxModel<String>) vista.getCbApodoHeroe().getModel())
@@ -181,7 +181,7 @@ public class ControladorConfiguracion {
         vista.getCkActivar1().setSelected(s.supremos);
         vista.getCkDesactivar().setSelected(!s.supremos);
 
-        JOptionPane.showMessageDialog(vista, "Snapshot cargado. Podés iniciar la batalla.");
+        JOptionPane.showMessageDialog(vista, "Partida cargada. Podés iniciar la batalla.");
     }
 
 

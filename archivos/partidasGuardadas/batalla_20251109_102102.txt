@@ -1,0 +1,12 @@
+apodoHeroe=Martina
+apodoVillano=bordiga
+vidaH=50000
+fuerzaH=12
+defensaH=12
+bendH=32
+vidaV=49994
+fuerzaV=12
+defensaV=12
+bendV=22
+cantidadBatallas=2
+supremos=true

@@ -299,6 +299,11 @@ public class VentanaBatalla extends javax.swing.JFrame {
         jMenu1.add(Pausar);
 
         GuardarPartida.setText("Guardar partida");
+        GuardarPartida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GuardarPartidaActionPerformed(evt);
+            }
+        });
         jMenu1.add(GuardarPartida);
 
         Salir.setText("Salir");
@@ -370,6 +375,10 @@ public class VentanaBatalla extends javax.swing.JFrame {
         VentanaReportes ventana = new VentanaReportes();
         ventana.setVisible(true);
     }//GEN-LAST:event_RankingActionPerformed
+
+    private void GuardarPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarPartidaActionPerformed
+        
+    }//GEN-LAST:event_GuardarPartidaActionPerformed
 
     /**
      * @param args the command line arguments

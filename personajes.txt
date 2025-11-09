@@ -28,3 +28,11 @@ Martina;Héroe;0;0;1;4
 Campesino;Villano;28;1;1;5
 Martina;Héroe;67;1;1;5
 bordiga;Villano;0;0;1;4
+Martina;Héroe;47;1;0;3
+bordiga;Villano;0;0;0;3
+Martina;Héroe;0;0;0;1
+bordiga;Villano;8;1;0;1
+Martina;Héroe;0;0;0;2
+bordiga;Villano;14;1;0;1
+Martina;Héroe;22;1;0;2
+bordiga;Villano;0;0;0;3
