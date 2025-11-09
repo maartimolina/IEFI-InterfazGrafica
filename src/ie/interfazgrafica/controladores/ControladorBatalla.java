@@ -45,7 +45,7 @@ public class ControladorBatalla {
         vista.getEstadisticas().addActionListener(e -> abrirReportes());
         vista.getRanking().addActionListener(e -> abrirReportes());
     }
-
+    
     // ============================ INICIALIZACIÓN ============================
     private void inicializarVista() {
         Reportes.limpiarEventos();
@@ -149,23 +149,26 @@ public class ControladorBatalla {
 
     // ============================= FIN DE BATALLA ===========================
     private void finalizarBatalla() {
-        if (timer != null && timer.isRunning()) timer.stop();
+         if (timer != null && timer.isRunning()) timer.stop();
 
         String ganador = heroe.estaVivo() ? heroe.getNombre() : villano.getNombre();
         agregarEvento("🏆 ¡Ganador de la batalla: " + ganador + "!");
 
-        // Historial
-        GestorArchivos.guardarBatalla(
-            heroe.getNombre(), villano.getNombre(), ganador, turnoActual
+        // Historial “crudo”
+        GestorArchivos.guardarBatalla(heroe.getNombre(), villano.getNombre(), ganador, turnoActual);
+
+        // NUEVO: transcript con los eventos que se mostraron en pantalla
+        GestorArchivos.guardarTranscriptBatalla(
+                Reportes.getEventos(), heroe.getNombre(), villano.getNombre(), ganador, turnoActual
         );
 
-        // Ranking (cada batalla agrega líneas; el controlador consolida)
+        // Ranking
         GestorArchivos.guardarPersonaje(
-            heroe.getNombre(), "Héroe", heroe.getVida(), heroe.estaVivo() ? 1 : 0,
+            heroe.getNombre(), "Héroe", heroe.getVida(), heroe.estaVivo()?1:0,
             heroe.getSupremosUsados(), heroe.getArmasInvocadas().size()
         );
         GestorArchivos.guardarPersonaje(
-            villano.getNombre(), "Villano", villano.getVida(), villano.estaVivo() ? 1 : 0,
+            villano.getNombre(), "Villano", villano.getVida(), villano.estaVivo()?1:0,
             villano.getSupremosUsados(), villano.getArmasInvocadas().size()
         );
 
@@ -176,7 +179,7 @@ public class ControladorBatalla {
         vr.setVisible(true);
         vista.dispose();
     }
-
+    
     // ================================ UTIL ================================
     private void actualizarBarras() {
         vista.getPbVida1().setValue(heroe.getVida());
@@ -191,7 +194,27 @@ public class ControladorBatalla {
     }
 
     private void guardarPartida() {
-        JOptionPane.showMessageDialog(vista, "Funcionalidad de guardado pendiente.");
+        // toma lo que está en pantalla/estado y lo guarda como snapshot
+        GestorArchivos.Snapshot s = new GestorArchivos.Snapshot();
+        s.apodoHeroe = heroe.getNombre();
+        s.apodoVillano = villano.getNombre();
+
+        // Stats actuales (podés elegir iniciales si preferís)
+        s.vidaH = heroe.getVida();
+        s.fuerzaH = heroe.getFuerzaActual();
+        s.defensaH = heroe.getDefensaActual();
+        s.bendH = heroe.getPorcentajeBendicion();
+
+        s.vidaV = villano.getVida();
+        s.fuerzaV = villano.getFuerzaActual();
+        s.defensaV = villano.getDefensaActual();
+        s.bendV = villano.getPorcentajeBendicion();
+
+        s.cantidadBatallas = cantidadBatallas;
+        s.supremos = ataquesSupremos;
+
+        java.io.File f = GestorArchivos.guardarSnapshot(s);
+        JOptionPane.showMessageDialog(vista, "Partida guardada en:\n" + f.getAbsolutePath());
     }
 
     private void salir() { vista.dispose(); }

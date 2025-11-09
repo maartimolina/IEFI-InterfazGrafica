@@ -16,3 +16,15 @@ Andy;Héroe;13;1;0;2
 Ruel;Villano;0;0;0;2
 AndyCapo;Héroe;34;1;0;2
 AgusTrolo;Villano;0;0;0;2
+Mar;Héroe;120;1;1;4
+Campesino;Villano;0;0;1;3
+MAR;Héroe;22;1;0;2
+bordiga;Villano;0;0;0;1
+Martina;Héroe;25;1;0;1
+Campesino;Villano;0;0;0;1
+Martina;Héroe;0;0;1;3
+Campesino;Villano;58;1;1;3
+Martina;Héroe;0;0;1;4
+Campesino;Villano;28;1;1;5
+Martina;Héroe;67;1;1;5
+bordiga;Villano;0;0;1;4
