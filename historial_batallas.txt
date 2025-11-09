@@ -1,2 +1,12 @@
 2025-11-09 11:13;El Guardián Blanco;El Devoralmas;El Devoralmas;9
 2025-11-09 11:14;El Portador de Luz;La Sombra Roja;El Portador de Luz;12
+2025-11-09 18:00;El Guardián Blanco;El Devoralmas;El Guardián Blanco;46
+2025-11-09 18:22;El Guardián Blanco;El Devoralmas;El Guardián Blanco;16
+2025-11-09 18:23;El Guardián Blanco;El Devoralmas;El Devoralmas;17
+2025-11-09 18:23;El Guardián Blanco;El Devoralmas;El Guardián Blanco;16
+2025-11-09 18:31;El Portador de Luz;La Sombra Roja;La Sombra Roja;17
+2025-11-09 18:31;El Portador de Luz;La Sombra Roja;El Portador de Luz;18
+2025-11-09 18:33;El Guardián Blanco;El Devoralmas;El Devoralmas;21
+2025-11-09 18:34;El Guardián Blanco;El Devoralmas;El Devoralmas;15
+2025-11-09 18:44;El Guardián Blanco;El Devoralmas;El Guardián Blanco;10
+2025-11-09 18:44;El Guardián Blanco;El Devoralmas;El Guardián Blanco;14

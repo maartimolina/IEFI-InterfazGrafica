@@ -13,7 +13,6 @@ public class ControladorConfiguracion {
         this.vista = vista;
         inicializarEventos();
 
-        // 🔹 Limpia las filas vacías iniciales del modelo de tabla
         DefaultTableModel modelo = (DefaultTableModel) vista.getTablaPersonajes().getModel();
         modelo.setRowCount(0);
         cargarJugadoresPersistidos();
@@ -25,7 +24,6 @@ public class ControladorConfiguracion {
         vista.getBtnCargarBatalla().addActionListener(e -> cargarBatalla());
         vista.getBtnSalir().addActionListener(e -> salir());
 
-        // Checkboxes mutuamente excluyentes
         vista.getCkActivar1().addActionListener(e ->
                 vista.getCkDesactivar().setSelected(!vista.getCkActivar1().isSelected()));
         vista.getCkDesactivar().addActionListener(e ->
@@ -45,7 +43,7 @@ public class ControladorConfiguracion {
     // ==========================================================
     private void iniciarBatalla() {
         try {
-            // === Leer selección de apodos ===
+            //Leer selección de apodos 
             String apodoHeroe = (String) vista.getCbApodoHeroe().getSelectedItem();
             String apodoVillano = (String) vista.getCbApodoVillano().getSelectedItem();
 
@@ -55,31 +53,28 @@ public class ControladorConfiguracion {
                 return;
             }
 
-            // === Leer estadísticas del héroe ===
+            // Leer estadísticas del héroe
             int vidaHeroe = Integer.parseInt(vista.getTxtVidaHeroe().getText());
             int fuerzaHeroe = Integer.parseInt(vista.getTxtFuerzaHeroe().getText());
             int defensaHeroe = Integer.parseInt(vista.getTxtDefensaHeroe().getText());
             int bendicionHeroe = Integer.parseInt(vista.getTxtBendicionHeroe().getText());
 
-            // === Leer estadísticas del villano ===
+            //Leer estadísticas del villano
             int vidaVillano = Integer.parseInt(vista.getTxtVidaVillano().getText());
             int fuerzaVillano = Integer.parseInt(vista.getTxtFuerzaVillano().getText());
             int defensaVillano = Integer.parseInt(vista.getTxtDefensaVillano().getText());
             int bendicionVillano = Integer.parseInt(vista.getTxtBendicionVillano().getText());
 
-            // === Crear objetos del modelo usando los apodos seleccionados ===
+
             Heroe heroe = new Heroe(apodoHeroe, vidaHeroe, fuerzaHeroe, defensaHeroe, bendicionHeroe);
             Villano villano = new Villano(apodoVillano, vidaVillano, fuerzaVillano, defensaVillano, bendicionVillano);
 
-            // === Configuración general ===
             int cantidadBatallas = Integer.parseInt((String) vista.getCbCantidadBatallas().getSelectedItem());
             boolean ataquesSupremos = vista.getCkActivar1().isSelected();
 
-            // === Confirmación ===
             JOptionPane.showMessageDialog(vista,
                     "Batalla lista:\nHéroe: " + heroe.getNombre() + "\nVillano: " + villano.getNombre());
 
-            // === Abrir ventana de batalla ===
             VentanaBatalla ventanaBatalla = new VentanaBatalla();
             new ControladorBatalla(ventanaBatalla, heroe, villano, cantidadBatallas, ataquesSupremos);
             ventanaBatalla.setLocationRelativeTo(null);
@@ -103,7 +98,6 @@ public class ControladorConfiguracion {
             if (j.length < 3) continue;
             String nombre = j[0], apodo = j[1], tipo = j[2];
 
-            // Evitar filas duplicadas si ya estaban en la tabla
             boolean dup = false;
             for (int i = 0; i < modelo.getRowCount(); i++) {
                 Object cell = modelo.getValueAt(i, 1);
@@ -111,7 +105,7 @@ public class ControladorConfiguracion {
             }
             if (!dup) modelo.addRow(new Object[]{nombre, apodo, tipo});
 
-            // Poblar combos según tipo
+            // combos según tipo
             if ("Héroe".equalsIgnoreCase(tipo)) {
                 if (((javax.swing.DefaultComboBoxModel<String>) vista.getCbApodoHeroe().getModel()).getIndexOf(apodo) == -1) {
                     vista.getCbApodoHeroe().addItem(apodo);
@@ -153,7 +147,7 @@ public class ControladorConfiguracion {
 
         GestorArchivos.PartidaGuardada s = GestorArchivos.leerPartidaGuardada(sel);
 
-        // Cargar apodos en combos (si no estaban)
+        // Cargar apodos en combos
         if (((javax.swing.DefaultComboBoxModel<String>) vista.getCbApodoHeroe().getModel())
                 .getIndexOf(s.apodoHeroe) == -1) {
             vista.getCbApodoHeroe().addItem(s.apodoHeroe);
@@ -166,7 +160,7 @@ public class ControladorConfiguracion {
         vista.getCbApodoHeroe().setSelectedItem(s.apodoHeroe);
         vista.getCbApodoVillano().setSelectedItem(s.apodoVillano);
 
-        // Stats
+
         vista.getTxtVidaHeroe().setText(String.valueOf(s.vidaH));
         vista.getTxtFuerzaHeroe().setText(String.valueOf(s.fuerzaH));
         vista.getTxtDefensaHeroe().setText(String.valueOf(s.defensaH));
@@ -234,11 +228,9 @@ public class ControladorConfiguracion {
         String tipo = esHeroe ? "Héroe" : "Villano";
         modelo.addRow(new Object[]{nombre, apodo, tipo});
 
-        // Actualizar combos
         if (esHeroe) vista.getCbApodoHeroe().addItem(apodo);
         else vista.getCbApodoVillano().addItem(apodo);
 
-        // Limpiar campos
         vista.getTxtNombre().setText("");
         vista.getTxtApodo().setText("");
         vista.getRbHeroe().setSelected(false);

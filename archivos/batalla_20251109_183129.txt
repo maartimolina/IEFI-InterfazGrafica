@@ -1,0 +1,3 @@
+Héroe: El Portador de Luz | Villano: La Sombra Roja
+Ganador: La Sombra Roja | Turnos: 17
+------------------------------------------------------------

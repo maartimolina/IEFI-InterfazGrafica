@@ -8,31 +8,23 @@ public abstract class Personaje {
     protected int vida;
     protected int fuerza;
     protected int defensaBase;
-
-    protected Arma armaActual;               // arma equipada
-    protected Bendicion fuenteDePoder;       // BendicionCelestial o BendicionDelVacio
-    protected int porcentajeBendicion;       // 0..100
-
-    // Estados por turnos
+    protected Arma armaActual;
+    protected Bendicion fuenteDePoder;
+    protected int porcentajeBendicion;
     private int venenoTurnosRestantes = 0;
     private int venenoDanioPorTurno = 0;
     private int defensaBuffTurnosRestantes = 0;
     private int defensaBuffExtra = 0;
-
-    // Control del flujo
     protected final Random rnd = new Random();
-
-    // Para reportes
     protected ArrayList<Arma> armasInvocadas = new ArrayList<>();
-    public static void registrarEvento(String e) {
-    Personaje.registrarEvento(e);
-}
-    // Supremos
     private int supremosUsados = 0;
     private boolean supremosHabilitados = true;
 
-    public Personaje(String nombre, int vida, int fuerza, int defensa,
-                     Bendicion fuente, int porcentajeBendicion) {
+    public static void registrarEvento(String e) {
+        Personaje.registrarEvento(e);
+    }
+
+    public Personaje(String nombre, int vida, int fuerza, int defensa, Bendicion fuente, int porcentajeBendicion) {
         this.nombre = nombre;
         this.vida = vida;
         this.fuerza = fuerza;
@@ -41,11 +33,9 @@ public abstract class Personaje {
         this.porcentajeBendicion = Math.max(0, Math.min(100, porcentajeBendicion));
     }
 
-    // ===== Toggle de supremos =====
     public void setSupremosHabilitados(boolean v) { this.supremosHabilitados = v; }
     public boolean isSupremosHabilitados() { return supremosHabilitados; }
 
-    // ===== Helpers para UI / Controlador =====
     public int getFuerzaActual() { return fuerza; }
     public int getDanioArma() { return (armaActual != null) ? armaActual.getDanioExtra() : 0; }
     public int getPorcentajeBendicion() { return porcentajeBendicion; }
@@ -57,7 +47,6 @@ public abstract class Personaje {
         return s.length() == 0 ? "-" : s.toString().trim();
     }
 
-    // ===== Getters base =====
     public boolean estaVivo() { return vida > 0; }
     public int getDefensaActual() { return defensaBase + defensaBuffExtra; }
     public String getNombre() { return nombre; }
@@ -65,11 +54,9 @@ public abstract class Personaje {
     public Arma getArmaActual() { return armaActual; }
     public ArrayList<Arma> getArmasInvocadas() { return armasInvocadas; }
 
-    // ===== Supremos usados =====
     public void registrarSupremoUsado() { supremosUsados++; }
     public int getSupremosUsados() { return supremosUsados; }
 
-    // ===== Estados por turno =====
     public void aplicarEstadosAlInicioDelTurno() {
         if (venenoTurnosRestantes > 0) {
             vida -= venenoDanioPorTurno;
@@ -85,7 +72,6 @@ public abstract class Personaje {
         }
     }
 
-    // ===== Combate =====
     public void recibirDanio(int danio) {
         int danioReal = Math.max(0, danio - getDefensaActual());
         vida -= danioReal;
@@ -126,7 +112,6 @@ public abstract class Personaje {
         }
     }
 
-    // Cada subclase define su estrategia
     public abstract void decidirAccion(Personaje enemigo);
 
     @Override
@@ -137,5 +122,35 @@ public abstract class Personaje {
                 + ", %bend/mald=" + porcentajeBendicion
                 + ", supremosUsados=" + supremosUsados + "]";
     }
-    
+
+    public void setVida(int vida) {
+        this.vida = Math.max(0, vida);
+    }
+
+    public void setFuerzaActual(int fuerzaActual) {
+        this.fuerza = fuerzaActual;
+    }
+
+    public void setDefensaActual(int defensaActual) {
+        this.defensaBase = defensaActual;
+        this.defensaBuffExtra = 0;
+        this.defensaBuffTurnosRestantes = 0;
+    }
+
+    public void setPorcentajeBendicion(int porcentajeBendicion) {
+        this.porcentajeBendicion = Math.max(0, Math.min(100, porcentajeBendicion));
+    }
+
+    public void setArmaActual(Arma arma) {
+        this.armaActual = arma;
+    }
+
+    public void limpiarEstados() {
+        this.venenoTurnosRestantes = 0;
+        this.venenoDanioPorTurno = 0;
+        this.defensaBuffTurnosRestantes = 0;
+        this.defensaBuffExtra = 0;
+        this.armaActual = null;
+        if (this.armasInvocadas != null) this.armasInvocadas.clear();
+    }
 }

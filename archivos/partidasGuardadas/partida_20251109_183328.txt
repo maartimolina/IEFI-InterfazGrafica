@@ -1,0 +1,12 @@
+apodoHeroe=El Guardián Blanco
+apodoVillano=El Devoralmas
+vidaH=50
+fuerzaH=12
+defensaH=12
+bendH=32
+vidaV=44
+fuerzaV=12
+defensaV=12
+bendV=22
+cantidadBatallas=2
+supremos=true

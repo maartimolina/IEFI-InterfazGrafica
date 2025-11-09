@@ -499,7 +499,7 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
                     .addGroup(ConfiguracionPartidasLayout.createSequentialGroup()
                         .addGap(168, 168, 168)
                         .addComponent(jLabel3)))
-                .addContainerGap(327, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         ConfiguracionPartidasLayout.setVerticalGroup(
             ConfiguracionPartidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -533,7 +533,7 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

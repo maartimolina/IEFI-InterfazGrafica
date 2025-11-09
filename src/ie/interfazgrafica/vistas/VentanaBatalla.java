@@ -6,6 +6,7 @@ package ie.interfazgrafica.vistas;
 import javax.swing.JLabel;
 import javax.swing.JMenuItem;
 import javax.swing.JProgressBar;
+import javax.swing.JTextArea;
 /**
  *
  * @author Valentina
@@ -36,10 +37,12 @@ public class VentanaBatalla extends javax.swing.JFrame {
     public JMenuItem getHistorialPartidas() { return HistorialPartidas; }
     public JMenuItem getEstadisticas() { return Estadisticas; }
     public JMenuItem getRanking() { return Ranking; }
+    public JTextArea getTxtEventos() {return txtEventos;}
     public javax.swing.JLabel getLblArma1()   { return lblArma1; }
     public javax.swing.JLabel getLblArma2()   { return lblArma2; }
     public javax.swing.JLabel getLblEstado1() { return lblEstado1; }
     public javax.swing.JLabel getLblEstado2() { return lblEstado2; }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -73,6 +76,8 @@ public class VentanaBatalla extends javax.swing.JFrame {
         pbBendicion2 = new javax.swing.JProgressBar();
         panelEventos = new javax.swing.JPanel();
         lblLog = new javax.swing.JLabel();
+        spEventos = new javax.swing.JScrollPane();
+        txtEventos = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         Pausar = new javax.swing.JMenuItem();
@@ -246,6 +251,10 @@ public class VentanaBatalla extends javax.swing.JFrame {
         lblLog.setForeground(new java.awt.Color(0, 102, 0));
         lblLog.setText("Log de eventos:");
 
+        txtEventos.setColumns(20);
+        txtEventos.setRows(5);
+        spEventos.setViewportView(txtEventos);
+
         javax.swing.GroupLayout panelEventosLayout = new javax.swing.GroupLayout(panelEventos);
         panelEventos.setLayout(panelEventosLayout);
         panelEventosLayout.setHorizontalGroup(
@@ -254,13 +263,19 @@ public class VentanaBatalla extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(lblLog)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(panelEventosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(spEventos)
+                .addContainerGap())
         );
         panelEventosLayout.setVerticalGroup(
             panelEventosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelEventosLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(lblLog)
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(spEventos, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -289,7 +304,7 @@ public class VentanaBatalla extends javax.swing.JFrame {
                     .addComponent(PanelJugador2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelEventos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Partida");
@@ -446,5 +461,7 @@ public class VentanaBatalla extends javax.swing.JFrame {
     private javax.swing.JProgressBar pbBendicion2;
     private javax.swing.JProgressBar pbVida1;
     private javax.swing.JProgressBar pbVida2;
+    private javax.swing.JScrollPane spEventos;
+    private javax.swing.JTextArea txtEventos;
     // End of variables declaration//GEN-END:variables
 }
