@@ -16,6 +16,7 @@ public class ControladorConfiguracion {
         // 🔹 Limpia las filas vacías iniciales del modelo de tabla
         DefaultTableModel modelo = (DefaultTableModel) vista.getTablaPersonajes().getModel();
         modelo.setRowCount(0);
+        cargarJugadoresPersistidos();
     }
 
     private void inicializarEventos() {
@@ -94,13 +95,95 @@ public class ControladorConfiguracion {
             ex.printStackTrace();
         }
     }
+    private void cargarJugadoresPersistidos() {
+        javax.swing.table.DefaultTableModel modelo =
+            (javax.swing.table.DefaultTableModel) vista.getTablaPersonajes().getModel();
+
+        for (String[] j : GestorArchivos.leerJugadores()) {
+            if (j.length < 3) continue;
+            String nombre = j[0], apodo = j[1], tipo = j[2];
+
+            // Evitar filas duplicadas si ya estaban en la tabla
+            boolean dup = false;
+            for (int i = 0; i < modelo.getRowCount(); i++) {
+                Object cell = modelo.getValueAt(i, 1);
+                if (cell != null && cell.toString().equalsIgnoreCase(apodo)) { dup = true; break; }
+            }
+            if (!dup) modelo.addRow(new Object[]{nombre, apodo, tipo});
+
+            // Poblar combos según tipo
+            if ("Héroe".equalsIgnoreCase(tipo)) {
+                if (((javax.swing.DefaultComboBoxModel<String>) vista.getCbApodoHeroe().getModel()).getIndexOf(apodo) == -1) {
+                    vista.getCbApodoHeroe().addItem(apodo);
+                }
+            } else if ("Villano".equalsIgnoreCase(tipo)) {
+                if (((javax.swing.DefaultComboBoxModel<String>) vista.getCbApodoVillano().getModel()).getIndexOf(apodo) == -1) {
+                    vista.getCbApodoVillano().addItem(apodo);
+                }
+            }
+        }
+    }
+
 
     // ==========================================================
     // BOTONES SECUNDARIOS
     // ==========================================================
     private void cargarBatalla() {
-        JOptionPane.showMessageDialog(vista, "Funcionalidad de carga aún no implementada.");
+        java.util.List<java.io.File> snaps = GestorArchivos.listarPartidasGuardadas();
+        if (snaps.isEmpty()) {
+            JOptionPane.showMessageDialog(vista, "No hay partidas guardadas aún.");
+            return;
+        }
+
+        // simple selector por nombre de archivo
+        String[] opciones = snaps.stream().map(java.io.File::getName).toArray(String[]::new);
+        String elegido = (String) JOptionPane.showInputDialog(
+                vista,
+                "Seleccioná un Batalla:",
+                "Cargar batalla",
+                JOptionPane.PLAIN_MESSAGE,
+                null,
+                opciones,
+                opciones[opciones.length - 1]
+        );
+        if (elegido == null) return;
+
+        java.io.File sel = snaps.stream().filter(f -> f.getName().equals(elegido)).findFirst().orElse(null);
+        if (sel == null) return;
+
+        GestorArchivos.PartidaGuardada s = GestorArchivos.leerPartidaGuardada(sel);
+
+        // Cargar apodos en combos (si no estaban)
+        if (((javax.swing.DefaultComboBoxModel<String>) vista.getCbApodoHeroe().getModel())
+                .getIndexOf(s.apodoHeroe) == -1) {
+            vista.getCbApodoHeroe().addItem(s.apodoHeroe);
+        }
+        if (((javax.swing.DefaultComboBoxModel<String>) vista.getCbApodoVillano().getModel())
+                .getIndexOf(s.apodoVillano) == -1) {
+            vista.getCbApodoVillano().addItem(s.apodoVillano);
+        }
+
+        vista.getCbApodoHeroe().setSelectedItem(s.apodoHeroe);
+        vista.getCbApodoVillano().setSelectedItem(s.apodoVillano);
+
+        // Stats
+        vista.getTxtVidaHeroe().setText(String.valueOf(s.vidaH));
+        vista.getTxtFuerzaHeroe().setText(String.valueOf(s.fuerzaH));
+        vista.getTxtDefensaHeroe().setText(String.valueOf(s.defensaH));
+        vista.getTxtBendicionHeroe().setText(String.valueOf(s.bendH));
+
+        vista.getTxtVidaVillano().setText(String.valueOf(s.vidaV));
+        vista.getTxtFuerzaVillano().setText(String.valueOf(s.fuerzaV));
+        vista.getTxtDefensaVillano().setText(String.valueOf(s.defensaV));
+        vista.getTxtBendicionVillano().setText(String.valueOf(s.bendV));
+
+        vista.getCbCantidadBatallas().setSelectedItem(String.valueOf(s.cantidadBatallas));
+        vista.getCkActivar1().setSelected(s.supremos);
+        vista.getCkDesactivar().setSelected(!s.supremos);
+
+        JOptionPane.showMessageDialog(vista, "Partida cargada. Podés iniciar la batalla.");
     }
+
 
     private void salir() {
         vista.dispose();
@@ -160,6 +243,7 @@ public class ControladorConfiguracion {
         vista.getTxtApodo().setText("");
         vista.getRbHeroe().setSelected(false);
         vista.getRbVillano().setSelected(false);
+        GestorArchivos.guardarJugador(nombre, apodo, tipo);
 
         JOptionPane.showMessageDialog(vista, "Jugador agregado correctamente.");
     }
@@ -197,6 +281,7 @@ public class ControladorConfiguracion {
         } else if ("Villano".equalsIgnoreCase(tipo)) {
             vista.getCbApodoVillano().removeItem(apodo);
         }
+        GestorArchivos.borrarJugadorPorApodo(apodo);
 
         JOptionPane.showMessageDialog(vista, "Jugador eliminado correctamente.");
     }

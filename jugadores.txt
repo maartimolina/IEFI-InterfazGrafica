@@ -1,0 +1,3 @@
+bordiga;bordiga;Villano
+Alvaro;Campesino;Villano
+Martina;Martina;Héroe

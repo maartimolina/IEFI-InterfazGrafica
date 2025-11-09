@@ -5,10 +5,7 @@ import ie.interfazgrafica.modelo.GestorArchivos;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.util.Map;
-import java.util.LinkedHashMap;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class ControladorReportes {
 
@@ -35,68 +32,65 @@ public class ControladorReportes {
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
         modelo.setRowCount(0);
 
-        List<String[]> registros = GestorArchivos.leerRanking();
+        List<String[]> registros = GestorArchivos.leerRanking(); // apodo;tipo;vida;vict;sup;armas
         if (registros.isEmpty()) {
             modelo.addRow(new Object[]{"(sin datos)", "-", "-", "-", "-", "-"});
             return;
         }
 
-        // Consolidar por nombre
+        // apodo -> nombreReal (si no existe, usamos el propio apodo)
+        Map<String, String> nombresPorApodo = GestorArchivos.cargarJugadoresMapa();
+
+        // Consolidar por apodo
         Map<String, FilaRanking> map = new LinkedHashMap<>();
         for (String[] r : registros) {
             if (r.length < 6) continue;
 
-            String nombre  = r[0];
+            String apodo   = r[0];
+            String nombre  = nombresPorApodo.getOrDefault(apodo, apodo);
             String tipo    = r[1];
             int vida       = parseIntSafe(r[2]);
             int victorias  = parseIntSafe(r[3]);
             int supremos   = parseIntSafe(r[4]);
             int armas      = parseIntSafe(r[5]);
 
-            FilaRanking fr = map.get(nombre);
+            FilaRanking fr = map.get(apodo);
             if (fr == null) {
-                fr = new FilaRanking(nombre, tipo);
-                map.put(nombre, fr);
+                fr = new FilaRanking(nombre, apodo, tipo);
+                map.put(apodo, fr);
             }
             fr.victorias      += victorias;
             fr.supremosUsados += supremos;
             fr.armasInvocadas += armas;
-            fr.vidaFinal       = vida; // tomamos la última vida final registrada
+            fr.vidaFinal       = vida; // última vida registrada
         }
 
-        // Orden por victorias desc, nombre asc
         List<FilaRanking> lista = new ArrayList<>(map.values());
         lista.sort((a, b) -> {
             int cmp = Integer.compare(b.victorias, a.victorias);
-            return (cmp != 0) ? cmp : a.nombre.compareToIgnoreCase(b.nombre);
+            return (cmp != 0) ? cmp : a.apodo.compareToIgnoreCase(b.apodo);
         });
 
         // Cargar tabla: Nombre | Apodo | Tipo | Vida Final | Victorias | Ataques Usados
         for (FilaRanking fr : lista) {
             modelo.addRow(new Object[]{
-                fr.nombre, "-",
-                fr.tipo,
-                fr.vidaFinal,
-                fr.victorias,
-                fr.supremosUsados
+                fr.nombreReal, fr.apodo, fr.tipo, fr.vidaFinal, fr.victorias, fr.supremosUsados
             });
         }
     }
 
     // ======================== ESTADÍSTICAS ========================
     private void cargarEstadisticas() {
-        // Mayor daño histórico
         int mayorDanio = GestorArchivos.leerMayorDanio();
 
-        // Batalla más larga (de historial)
         int batallaMasLarga = 0;
         for (String[] h : GestorArchivos.leerHistorial()) {
             if (h.length >= 5) batallaMasLarga = Math.max(batallaMasLarga, parseIntSafe(h[4]));
         }
 
-        // Totales desde ranking crudo
         int totalArmas = 0;
         int totalSupremos = 0;
+
         for (String[] r : GestorArchivos.leerRanking()) {
             if (r.length >= 6) {
                 totalSupremos += parseIntSafe(r[4]);
@@ -146,16 +140,14 @@ public class ControladorReportes {
         try { return Integer.parseInt(s.trim()); } catch (Exception e) { return 0; }
     }
 
+    // ↓↓↓ SOLO UNA definición de esta clase interna ↓↓↓
     private static class FilaRanking {
-        String nombre;
-        String tipo;
-        int vidaFinal;
-        int victorias;
-        int supremosUsados;
-        int armasInvocadas;
+        String nombreReal, apodo, tipo;
+        int vidaFinal, victorias, supremosUsados, armasInvocadas;
 
-        FilaRanking(String nombre, String tipo) {
-            this.nombre = nombre;
+        FilaRanking(String nombreReal, String apodo, String tipo) {
+            this.nombreReal = nombreReal;
+            this.apodo = apodo;
             this.tipo = tipo;
         }
     }

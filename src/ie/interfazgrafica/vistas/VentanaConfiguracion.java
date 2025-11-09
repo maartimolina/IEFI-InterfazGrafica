@@ -440,6 +440,11 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
         btnCargarBatalla.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         btnCargarBatalla.setForeground(new java.awt.Color(255, 255, 255));
         btnCargarBatalla.setText("Cargar Batalla");
+        btnCargarBatalla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCargarBatallaActionPerformed(evt);
+            }
+        });
 
         btnSalir.setBackground(new java.awt.Color(204, 204, 204));
         btnSalir.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
@@ -543,6 +548,10 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnCargarBatallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarBatallaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCargarBatallaActionPerformed
 
     /**
      * @param args the command line arguments
